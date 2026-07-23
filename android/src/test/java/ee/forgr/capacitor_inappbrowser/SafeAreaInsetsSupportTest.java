@@ -84,4 +84,65 @@ public class SafeAreaInsetsSupportTest {
         assertEquals(0, SafeAreaInsetsSupport.resolveTopMarginWithFallback(false, true, 0, false, 48, true));
         assertEquals(0, SafeAreaInsetsSupport.resolveTopMarginWithFallback(true, false, 0, false, 48, true));
     }
+
+    @Test
+    public void containerBottomPaddingAddsAppBarDisplacementToNavigationBarInset() {
+        // Android 15 device: 126px navigation bar + 87px status-bar appbar displacement = 213px.
+        assertEquals(213, SafeAreaInsetsSupport.resolveContainerBottomPadding(true, 126, 0, true, 87));
+    }
+
+    @Test
+    public void containerBottomPaddingOmitsCompensationWhenAppBarDoesNotHandleTopInset() {
+        assertEquals(126, SafeAreaInsetsSupport.resolveContainerBottomPadding(true, 126, 0, false, 87));
+    }
+
+    @Test
+    public void containerBottomPaddingCompensatesAppBarEvenWhenSafeMarginDisabled() {
+        // The appbar top-margin displaces the WebView bottom regardless of the safe-margin option,
+        // so the displacement must still be compensated to keep bottom content on-screen.
+        assertEquals(87, SafeAreaInsetsSupport.resolveContainerBottomPadding(false, 126, 0, true, 87));
+    }
+
+    @Test
+    public void containerBottomPaddingIsZeroWithoutSafeMarginOrAppBarDisplacement() {
+        assertEquals(0, SafeAreaInsetsSupport.resolveContainerBottomPadding(false, 126, 0, false, 87));
+    }
+
+    @Test
+    public void containerBottomPaddingClampsNegativeInputsToZero() {
+        assertEquals(0, SafeAreaInsetsSupport.resolveContainerBottomPadding(true, -10, 0, true, -5));
+    }
+
+    @Test
+    public void containerBottomPaddingUsesKeyboardInsetOverNavigationBarPlusCompensation() {
+        // Keyboard visible (280px) exceeds the 126px navigation bar; the 87px appbar displacement
+        // still applies on top: max(126, 280) + 87 = 367.
+        assertEquals(367, SafeAreaInsetsSupport.resolveContainerBottomPadding(true, 126, 280, true, 87));
+    }
+
+    @Test
+    public void containerBottomPaddingAppliesKeyboardInsetEvenWhenSafeMarginDisabled() {
+        assertEquals(367, SafeAreaInsetsSupport.resolveContainerBottomPadding(false, 126, 280, true, 87));
+    }
+
+    @Test
+    public void containerBottomPaddingKeepsNavigationBarWhenLargerThanKeyboardInset() {
+        assertEquals(126, SafeAreaInsetsSupport.resolveContainerBottomPadding(true, 126, 50, false, 0));
+    }
+
+    @Test
+    public void containerTopPaddingIsZeroWhenAppBarHandlesTopInset() {
+        assertEquals(0, SafeAreaInsetsSupport.resolveContainerTopPadding(true, true, 87, true));
+    }
+
+    @Test
+    public void containerTopPaddingUsesStatusBarWhenAppBarDoesNotHandleTop() {
+        assertEquals(87, SafeAreaInsetsSupport.resolveContainerTopPadding(true, true, 87, false));
+    }
+
+    @Test
+    public void containerTopPaddingRequiresBothSafeTopAndExplicitTopInset() {
+        assertEquals(0, SafeAreaInsetsSupport.resolveContainerTopPadding(false, true, 87, false));
+        assertEquals(0, SafeAreaInsetsSupport.resolveContainerTopPadding(true, false, 87, false));
+    }
 }
