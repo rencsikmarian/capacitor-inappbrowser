@@ -1,0 +1,3836 @@
+{
+  "api": {
+    "name": "InAppBrowserPlugin",
+    "slug": "inappbrowserplugin",
+    "docs": "",
+    "tags": [],
+    "methods": [
+      {
+        "name": "goBack",
+        "signature": "(options?: { id?: string | undefined; } | undefined) => Promise<{ canGoBack: boolean; }>",
+        "parameters": [
+          {
+            "name": "options",
+            "docs": "",
+            "type": "{ id?: string | undefined; } | undefined"
+          }
+        ],
+        "returns": "Promise<{ canGoBack: boolean; }>",
+        "tags": [
+          {
+            "name": "since",
+            "text": "7.21.0"
+          },
+          {
+            "name": "returns",
+            "text": "Promise that resolves with true if navigation was possible, false otherwise"
+          }
+        ],
+        "docs": "Navigates back in the WebView's history if possible",
+        "complexTypes": [],
+        "slug": "goback"
+      },
+      {
+        "name": "open",
+        "signature": "(options: OpenOptions) => Promise<any>",
+        "parameters": [
+          {
+            "name": "options",
+            "docs": "",
+            "type": "OpenOptions"
+          }
+        ],
+        "returns": "Promise<any>",
+        "tags": [
+          {
+            "name": "since",
+            "text": "0.1.0"
+          }
+        ],
+        "docs": "Open url in a new window fullscreen, on android it use chrome custom tabs, on ios it use SFSafariViewController",
+        "complexTypes": [
+          "OpenOptions"
+        ],
+        "slug": "open"
+      },
+      {
+        "name": "clearCookies",
+        "signature": "(options: ClearCookieOptions) => Promise<any>",
+        "parameters": [
+          {
+            "name": "options",
+            "docs": "",
+            "type": "ClearCookieOptions"
+          }
+        ],
+        "returns": "Promise<any>",
+        "tags": [
+          {
+            "name": "since",
+            "text": "0.5.0"
+          }
+        ],
+        "docs": "Clear cookies of url\nWhen `id` is omitted, applies to all open webviews.",
+        "complexTypes": [
+          "ClearCookieOptions"
+        ],
+        "slug": "clearcookies"
+      },
+      {
+        "name": "clearAllCookies",
+        "signature": "(options?: { id?: string | undefined; } | undefined) => Promise<any>",
+        "parameters": [
+          {
+            "name": "options",
+            "docs": "",
+            "type": "{ id?: string | undefined; } | undefined"
+          }
+        ],
+        "returns": "Promise<any>",
+        "tags": [
+          {
+            "name": "since",
+            "text": "6.5.0"
+          }
+        ],
+        "docs": "Clear all cookies\nWhen `id` is omitted, applies to all open webviews.",
+        "complexTypes": [],
+        "slug": "clearallcookies"
+      },
+      {
+        "name": "clearCache",
+        "signature": "(options?: { id?: string | undefined; } | undefined) => Promise<any>",
+        "parameters": [
+          {
+            "name": "options",
+            "docs": "",
+            "type": "{ id?: string | undefined; } | undefined"
+          }
+        ],
+        "returns": "Promise<any>",
+        "tags": [
+          {
+            "name": "since",
+            "text": "6.5.0"
+          }
+        ],
+        "docs": "Clear cache\nWhen `id` is omitted, applies to all open webviews.",
+        "complexTypes": [],
+        "slug": "clearcache"
+      },
+      {
+        "name": "clearAllBrowsingData",
+        "signature": "() => Promise<any>",
+        "parameters": [],
+        "returns": "Promise<any>",
+        "tags": [
+          {
+            "name": "since",
+            "text": "8.6.36"
+          }
+        ],
+        "docs": "Clear all browsing data from the default store and any opened managed webviews.\n\nThis removes cookies, disk cache, memory cache, local storage, session storage, IndexedDB,\nWebSQL where supported, form data, and HTTP auth data where the platform exposes it.",
+        "complexTypes": [],
+        "slug": "clearallbrowsingdata"
+      },
+      {
+        "name": "getCookies",
+        "signature": "(options: GetCookieOptions) => Promise<Record<string, string>>",
+        "parameters": [
+          {
+            "name": "options",
+            "docs": "The options, including the URL to get cookies for.",
+            "type": "GetCookieOptions"
+          }
+        ],
+        "returns": "Promise<Record<string, string>>",
+        "tags": [
+          {
+            "name": "param",
+            "text": "options The options, including the URL to get cookies for."
+          },
+          {
+            "name": "returns",
+            "text": "A promise that resolves with the cookies."
+          }
+        ],
+        "docs": "Get cookies for a specific URL.",
+        "complexTypes": [
+          "Record",
+          "GetCookieOptions"
+        ],
+        "slug": "getcookies"
+      },
+      {
+        "name": "close",
+        "signature": "(options?: CloseWebviewOptions | undefined) => Promise<any>",
+        "parameters": [
+          {
+            "name": "options",
+            "docs": "",
+            "type": "CloseWebviewOptions | undefined"
+          }
+        ],
+        "returns": "Promise<any>",
+        "tags": [],
+        "docs": "Close the webview.\nWhen `id` is omitted, closes the active webview.",
+        "complexTypes": [
+          "CloseWebviewOptions"
+        ],
+        "slug": "close"
+      },
+      {
+        "name": "hide",
+        "signature": "(options?: { id?: string | undefined; } | undefined) => Promise<void>",
+        "parameters": [
+          {
+            "name": "options",
+            "docs": "",
+            "type": "{ id?: string | undefined; } | undefined"
+          }
+        ],
+        "returns": "Promise<void>",
+        "tags": [
+          {
+            "name": "since",
+            "text": "8.0.8"
+          }
+        ],
+        "docs": "Hide the webview without closing it.\nUse show() to bring it back.\nWhen `id` is omitted, targets the active webview.",
+        "complexTypes": [],
+        "slug": "hide"
+      },
+      {
+        "name": "show",
+        "signature": "(options?: { id?: string | undefined; } | undefined) => Promise<void>",
+        "parameters": [
+          {
+            "name": "options",
+            "docs": "",
+            "type": "{ id?: string | undefined; } | undefined"
+          }
+        ],
+        "returns": "Promise<void>",
+        "tags": [
+          {
+            "name": "since",
+            "text": "8.0.8"
+          }
+        ],
+        "docs": "Show a previously hidden webview.\nWhen `id` is omitted, targets the active webview.",
+        "complexTypes": [],
+        "slug": "show"
+      },
+      {
+        "name": "sendToBack",
+        "signature": "(options?: LayerOptions | undefined) => Promise<void>",
+        "parameters": [
+          {
+            "name": "options",
+            "docs": "",
+            "type": "LayerOptions | undefined"
+          }
+        ],
+        "returns": "Promise<void>",
+        "tags": [],
+        "docs": "Moves the native browser behind the Capacitor host WebView.\nUse `dispatchInputEvent()` to forward overlay gestures to the browser while it is behind the app UI.",
+        "complexTypes": [
+          "LayerOptions"
+        ],
+        "slug": "sendtoback"
+      },
+      {
+        "name": "bringToFront",
+        "signature": "(options?: BringToFrontOptions | undefined) => Promise<void>",
+        "parameters": [
+          {
+            "name": "options",
+            "docs": "",
+            "type": "BringToFrontOptions | undefined"
+          }
+        ],
+        "returns": "Promise<void>",
+        "tags": [],
+        "docs": "Moves a browser that was behind the host WebView back to the front.\nOn iOS, set `isAnimated` to `false` to skip the presentation animation.\nWhen `id` is omitted, targets the active webview.",
+        "complexTypes": [
+          "BringToFrontOptions"
+        ],
+        "slug": "bringtofront"
+      },
+      {
+        "name": "dispatchInputEvent",
+        "signature": "(options: DispatchInputEventOptions) => Promise<void>",
+        "parameters": [
+          {
+            "name": "options",
+            "docs": "",
+            "type": "DispatchInputEventOptions"
+          }
+        ],
+        "returns": "Promise<void>",
+        "tags": [],
+        "docs": "Dispatches a click, touch, or scroll event to a managed browser.\nCoordinates are relative to the browser viewport in CSS pixels.",
+        "complexTypes": [
+          "DispatchInputEventOptions"
+        ],
+        "slug": "dispatchinputevent"
+      },
+      {
+        "name": "openWebView",
+        "signature": "(options: OpenWebViewOptions) => Promise<{ id: string; }>",
+        "parameters": [
+          {
+            "name": "options",
+            "docs": "",
+            "type": "OpenWebViewOptions"
+          }
+        ],
+        "returns": "Promise<{ id: string; }>",
+        "tags": [
+          {
+            "name": "returns",
+            "text": "Promise that resolves with the created webview id."
+          },
+          {
+            "name": "since",
+            "text": "0.1.0"
+          }
+        ],
+        "docs": "Open url in a new webview with toolbars, and enhanced capabilities, like camera access, file access, listen events, inject javascript, bi directional communication, etc.\n\nJavaScript Interface:\nWhen you open a webview with this method, a JavaScript interface is automatically injected that provides:\n- `window.mobileApp.close()`: Closes the webview from JavaScript\n- `window.mobileApp.postMessage({detail: {message: \"myMessage\"}})`: Sends a message from the webview to the app, detail object is the data you want to send to the webview\n- `window.mobileApp.takeScreenshot()` when `allowScreenshotsFromWebPage` is true\n\nPromise timing differs by platform when `isPresentAfterPageLoad` is used.\nAndroid resolves with `{ id }` after the dialog is ready to control, while iOS resolves with `{ id }` immediately after creating the native webview.",
+        "complexTypes": [
+          "OpenWebViewOptions"
+        ],
+        "slug": "openwebview"
+      },
+      {
+        "name": "executeScript",
+        "signature": "(options: { code: string; id?: string; }) => Promise<void>",
+        "parameters": [
+          {
+            "name": "options",
+            "docs": "",
+            "type": "{ code: string; id?: string | undefined; }"
+          }
+        ],
+        "returns": "Promise<void>",
+        "tags": [],
+        "docs": "Injects JavaScript code into the InAppBrowser window.\nWhen `id` is omitted, executes in all open webviews.",
+        "complexTypes": [],
+        "slug": "executescript"
+      },
+      {
+        "name": "postMessage",
+        "signature": "(options: { detail: Record<string, any>; id?: string; }) => Promise<void>",
+        "parameters": [
+          {
+            "name": "options",
+            "docs": "",
+            "type": "{ detail: Record<string, any>; id?: string | undefined; }"
+          }
+        ],
+        "returns": "Promise<void>",
+        "tags": [],
+        "docs": "Sends an event to the webview(inappbrowser). you can listen to this event in the inappbrowser JS with window.addEventListener(\"messageFromNative\", listenerFunc: (event: Record<string, any>) => void)\ndetail is the data you want to send to the webview, it's a requirement of Capacitor we cannot send direct objects\nYour object has to be serializable to JSON, so no functions or other non-JSON-serializable types are allowed.\nWhen `id` is omitted, broadcasts to all open webviews.",
+        "complexTypes": [
+          "Record"
+        ],
+        "slug": "postmessage"
+      },
+      {
+        "name": "takeScreenshot",
+        "signature": "(options?: { id?: string | undefined; } | undefined) => Promise<ScreenshotResult>",
+        "parameters": [
+          {
+            "name": "options",
+            "docs": "",
+            "type": "{ id?: string | undefined; } | undefined"
+          }
+        ],
+        "returns": "Promise<ScreenshotResult>",
+        "tags": [],
+        "docs": "Captures the current webview viewport as a PNG screenshot.\nWhen `id` is omitted, targets the active webview.\n\nOn iOS, when testing through Apple's iPhone Mirroring app with the physical\ndevice locked, the snapshot can succeed with the correct dimensions but a\nfully transparent PNG. Capture works as expected on a normal unlocked device.",
+        "complexTypes": [
+          "ScreenshotResult"
+        ],
+        "slug": "takescreenshot"
+      },
+      {
+        "name": "setUrl",
+        "signature": "(options: { url: string; id?: string; }) => Promise<any>",
+        "parameters": [
+          {
+            "name": "options",
+            "docs": "",
+            "type": "{ url: string; id?: string | undefined; }"
+          }
+        ],
+        "returns": "Promise<any>",
+        "tags": [],
+        "docs": "Sets the URL of the webview.\nWhen `id` is omitted, targets the active webview.",
+        "complexTypes": [],
+        "slug": "seturl"
+      },
+      {
+        "name": "addListener",
+        "signature": "(eventName: 'urlChangeEvent', listenerFunc: UrlChangeListener) => Promise<PluginListenerHandle>",
+        "parameters": [
+          {
+            "name": "eventName",
+            "docs": "",
+            "type": "'urlChangeEvent'"
+          },
+          {
+            "name": "listenerFunc",
+            "docs": "",
+            "type": "UrlChangeListener"
+          }
+        ],
+        "returns": "Promise<PluginListenerHandle>",
+        "tags": [
+          {
+            "name": "since",
+            "text": "0.0.1"
+          }
+        ],
+        "docs": "Listen for url change, only for openWebView",
+        "complexTypes": [
+          "PluginListenerHandle",
+          "UrlChangeListener"
+        ],
+        "slug": "addlistenerurlchangeevent-"
+      },
+      {
+        "name": "addListener",
+        "signature": "(eventName: 'buttonNearDoneClick', listenerFunc: ButtonNearListener) => Promise<PluginListenerHandle>",
+        "parameters": [
+          {
+            "name": "eventName",
+            "docs": "",
+            "type": "'buttonNearDoneClick'"
+          },
+          {
+            "name": "listenerFunc",
+            "docs": "",
+            "type": "ButtonNearListener"
+          }
+        ],
+        "returns": "Promise<PluginListenerHandle>",
+        "tags": [
+          {
+            "name": "since",
+            "text": "0.0.1"
+          }
+        ],
+        "docs": "Listen for buttonNearDone clicks.\n\nThe event payload contains the webview `id`.",
+        "complexTypes": [
+          "PluginListenerHandle",
+          "ButtonNearListener"
+        ],
+        "slug": "addlistenerbuttonneardoneclick-"
+      },
+      {
+        "name": "addListener",
+        "signature": "(eventName: 'closeEvent', listenerFunc: UrlChangeListener) => Promise<PluginListenerHandle>",
+        "parameters": [
+          {
+            "name": "eventName",
+            "docs": "",
+            "type": "'closeEvent'"
+          },
+          {
+            "name": "listenerFunc",
+            "docs": "",
+            "type": "UrlChangeListener"
+          }
+        ],
+        "returns": "Promise<PluginListenerHandle>",
+        "tags": [
+          {
+            "name": "since",
+            "text": "0.4.0"
+          }
+        ],
+        "docs": "Listen for close click only for openWebView",
+        "complexTypes": [
+          "PluginListenerHandle",
+          "UrlChangeListener"
+        ],
+        "slug": "addlistenercloseevent-"
+      },
+      {
+        "name": "addListener",
+        "signature": "(eventName: 'hideEvent', listenerFunc: HideListener) => Promise<PluginListenerHandle>",
+        "parameters": [
+          {
+            "name": "eventName",
+            "docs": "",
+            "type": "'hideEvent'"
+          },
+          {
+            "name": "listenerFunc",
+            "docs": "",
+            "type": "HideListener"
+          }
+        ],
+        "returns": "Promise<PluginListenerHandle>",
+        "tags": [
+          {
+            "name": "since",
+            "text": "8.7.7"
+          }
+        ],
+        "docs": "Listen for webviews hidden by the toolbar close button when closeAction is CloseAction.HIDE.",
+        "complexTypes": [
+          "PluginListenerHandle",
+          "HideListener"
+        ],
+        "slug": "addlistenerhideevent-"
+      },
+      {
+        "name": "addListener",
+        "signature": "(eventName: 'confirmBtnClicked', listenerFunc: ConfirmBtnListener) => Promise<PluginListenerHandle>",
+        "parameters": [
+          {
+            "name": "eventName",
+            "docs": "",
+            "type": "'confirmBtnClicked'"
+          },
+          {
+            "name": "listenerFunc",
+            "docs": "",
+            "type": "ConfirmBtnListener"
+          }
+        ],
+        "returns": "Promise<PluginListenerHandle>",
+        "tags": [
+          {
+            "name": "since",
+            "text": "0.0.1"
+          }
+        ],
+        "docs": "Will be triggered when user clicks on confirm button when disclaimer is required,\nworks with openWebView shareDisclaimer and closeModal",
+        "complexTypes": [
+          "PluginListenerHandle",
+          "ConfirmBtnListener"
+        ],
+        "slug": "addlistenerconfirmbtnclicked-"
+      },
+      {
+        "name": "addListener",
+        "signature": "(eventName: 'messageFromWebview', listenerFunc: (event: { id?: string; detail?: Record<string, any>; rawMessage?: string; }) => void) => Promise<PluginListenerHandle>",
+        "parameters": [
+          {
+            "name": "eventName",
+            "docs": "",
+            "type": "'messageFromWebview'"
+          },
+          {
+            "name": "listenerFunc",
+            "docs": "",
+            "type": "(event: { id?: string | undefined; detail?: Record<string, any> | undefined; rawMessage?: string | undefined; }) => void"
+          }
+        ],
+        "returns": "Promise<PluginListenerHandle>",
+        "tags": [],
+        "docs": "Will be triggered when event is sent from webview(inappbrowser), to send an event to the main app use window.mobileApp.postMessage({ \"detail\": { \"message\": \"myMessage\" } })\ndetail is the data you want to send to the main app, it's a requirement of Capacitor we cannot send direct objects\nYour object has to be serializable to JSON, no functions or other non-JSON-serializable types are allowed.\n\nThis method is inject at runtime in the webview",
+        "complexTypes": [
+          "PluginListenerHandle",
+          "Record"
+        ],
+        "slug": "addlistenermessagefromwebview-"
+      },
+      {
+        "name": "addListener",
+        "signature": "(eventName: 'screenshotTaken', listenerFunc: (event: ScreenshotResult & { id?: string; }) => void) => Promise<PluginListenerHandle>",
+        "parameters": [
+          {
+            "name": "eventName",
+            "docs": "",
+            "type": "'screenshotTaken'"
+          },
+          {
+            "name": "listenerFunc",
+            "docs": "",
+            "type": "(event: ScreenshotResult & { id?: string | undefined; }) => void"
+          }
+        ],
+        "returns": "Promise<PluginListenerHandle>",
+        "tags": [],
+        "docs": "Will be triggered whenever a screenshot is captured from the plugin API,\nthe native screenshot button, or the injected JavaScript bridge.",
+        "complexTypes": [
+          "PluginListenerHandle",
+          "ScreenshotResult"
+        ],
+        "slug": "addlistenerscreenshottaken-"
+      },
+      {
+        "name": "addListener",
+        "signature": "(eventName: 'browserPageLoaded', listenerFunc: (event: { id?: string; }) => void) => Promise<PluginListenerHandle>",
+        "parameters": [
+          {
+            "name": "eventName",
+            "docs": "",
+            "type": "'browserPageLoaded'"
+          },
+          {
+            "name": "listenerFunc",
+            "docs": "",
+            "type": "(event: { id?: string | undefined; }) => void"
+          }
+        ],
+        "returns": "Promise<PluginListenerHandle>",
+        "tags": [],
+        "docs": "Will be triggered when page is loaded",
+        "complexTypes": [
+          "PluginListenerHandle"
+        ],
+        "slug": "addlistenerbrowserpageloaded-"
+      },
+      {
+        "name": "addListener",
+        "signature": "(eventName: 'browserPageLoadStart', listenerFunc: (event: { id?: string; }) => void) => Promise<PluginListenerHandle>",
+        "parameters": [
+          {
+            "name": "eventName",
+            "docs": "",
+            "type": "'browserPageLoadStart'"
+          },
+          {
+            "name": "listenerFunc",
+            "docs": "",
+            "type": "(event: { id?: string | undefined; }) => void"
+          }
+        ],
+        "returns": "Promise<PluginListenerHandle>",
+        "tags": [
+          {
+            "name": "since",
+            "text": "8.11.0"
+          }
+        ],
+        "docs": "Will be triggered when a main-frame page load starts (link navigation, reload, etc.).",
+        "complexTypes": [
+          "PluginListenerHandle"
+        ],
+        "slug": "addlistenerbrowserpageloadstart-"
+      },
+      {
+        "name": "addListener",
+        "signature": "(eventName: 'browserPageLoadProgress', listenerFunc: (event: { id?: string; progress: number; }) => void) => Promise<PluginListenerHandle>",
+        "parameters": [
+          {
+            "name": "eventName",
+            "docs": "",
+            "type": "'browserPageLoadProgress'"
+          },
+          {
+            "name": "listenerFunc",
+            "docs": "",
+            "type": "(event: { id?: string | undefined; progress: number; }) => void"
+          }
+        ],
+        "returns": "Promise<PluginListenerHandle>",
+        "tags": [
+          {
+            "name": "since",
+            "text": "8.11.0"
+          }
+        ],
+        "docs": "Will be triggered as a main-frame page load progresses.\n`progress` is a value from `0` to `1`.",
+        "complexTypes": [
+          "PluginListenerHandle"
+        ],
+        "slug": "addlistenerbrowserpageloadprogress-"
+      },
+      {
+        "name": "addListener",
+        "signature": "(eventName: 'pageLoadError', listenerFunc: (event: { id?: string; }) => void) => Promise<PluginListenerHandle>",
+        "parameters": [
+          {
+            "name": "eventName",
+            "docs": "",
+            "type": "'pageLoadError'"
+          },
+          {
+            "name": "listenerFunc",
+            "docs": "",
+            "type": "(event: { id?: string | undefined; }) => void"
+          }
+        ],
+        "returns": "Promise<PluginListenerHandle>",
+        "tags": [],
+        "docs": "Will be triggered when page load error",
+        "complexTypes": [
+          "PluginListenerHandle"
+        ],
+        "slug": "addlistenerpageloaderror-"
+      },
+      {
+        "name": "addListener",
+        "signature": "(eventName: 'customSchemeIntercepted', listenerFunc: CustomSchemeInterceptedListener) => Promise<PluginListenerHandle>",
+        "parameters": [
+          {
+            "name": "eventName",
+            "docs": "",
+            "type": "'customSchemeIntercepted'"
+          },
+          {
+            "name": "listenerFunc",
+            "docs": "",
+            "type": "CustomSchemeInterceptedListener"
+          }
+        ],
+        "returns": "Promise<PluginListenerHandle>",
+        "tags": [
+          {
+            "name": "since",
+            "text": "8.6.7"
+          }
+        ],
+        "docs": "Will be triggered when the webview intercepts a non-standard custom scheme\nand hands it to the operating system.\n\nStandard OS-handled schemes such as `tel:`, `mailto:`, and `sms:` are excluded.",
+        "complexTypes": [
+          "PluginListenerHandle",
+          "CustomSchemeInterceptedListener"
+        ],
+        "slug": "addlistenercustomschemeintercepted-"
+      },
+      {
+        "name": "addListener",
+        "signature": "(eventName: 'downloadCompleted', listenerFunc: (event: DownloadCompletedEvent) => void) => Promise<PluginListenerHandle>",
+        "parameters": [
+          {
+            "name": "eventName",
+            "docs": "",
+            "type": "'downloadCompleted'"
+          },
+          {
+            "name": "listenerFunc",
+            "docs": "",
+            "type": "(event: DownloadCompletedEvent) => void"
+          }
+        ],
+        "returns": "Promise<PluginListenerHandle>",
+        "tags": [
+          {
+            "name": "since",
+            "text": "8.6.0"
+          }
+        ],
+        "docs": "Will be triggered after native download handling saves a file locally.\nEnable this with `handleDownloads: true` when opening the webview.",
+        "complexTypes": [
+          "PluginListenerHandle",
+          "DownloadCompletedEvent"
+        ],
+        "slug": "addlistenerdownloadcompleted-"
+      },
+      {
+        "name": "addListener",
+        "signature": "(eventName: 'downloadFailed', listenerFunc: (event: DownloadFailedEvent) => void) => Promise<PluginListenerHandle>",
+        "parameters": [
+          {
+            "name": "eventName",
+            "docs": "",
+            "type": "'downloadFailed'"
+          },
+          {
+            "name": "listenerFunc",
+            "docs": "",
+            "type": "(event: DownloadFailedEvent) => void"
+          }
+        ],
+        "returns": "Promise<PluginListenerHandle>",
+        "tags": [
+          {
+            "name": "since",
+            "text": "8.6.0"
+          }
+        ],
+        "docs": "Will be triggered when native download handling fails.\nEnable this with `handleDownloads: true` when opening the webview.",
+        "complexTypes": [
+          "PluginListenerHandle",
+          "DownloadFailedEvent"
+        ],
+        "slug": "addlistenerdownloadfailed-"
+      },
+      {
+        "name": "addListener",
+        "signature": "(eventName: 'popupWindowOpened', listenerFunc: (event: PopupWindowEvent) => void) => Promise<PluginListenerHandle>",
+        "parameters": [
+          {
+            "name": "eventName",
+            "docs": "",
+            "type": "'popupWindowOpened'"
+          },
+          {
+            "name": "listenerFunc",
+            "docs": "",
+            "type": "(event: PopupWindowEvent) => void"
+          }
+        ],
+        "returns": "Promise<PluginListenerHandle>",
+        "tags": [
+          {
+            "name": "since",
+            "text": "8.6.0"
+          }
+        ],
+        "docs": "Will be triggered whenever a page opens a popup/new window.\nUse the returned popup id with `executeScript`, `postMessage`, `show`, `hide`, and `close`.",
+        "complexTypes": [
+          "PluginListenerHandle",
+          "PopupWindowEvent"
+        ],
+        "slug": "addlistenerpopupwindowopened-"
+      },
+      {
+        "name": "addListener",
+        "signature": "(eventName: 'proxyRequest', listenerFunc: (event: ProxyRequest) => void) => Promise<PluginListenerHandle>",
+        "parameters": [
+          {
+            "name": "eventName",
+            "docs": "",
+            "type": "'proxyRequest'"
+          },
+          {
+            "name": "listenerFunc",
+            "docs": "",
+            "type": "(event: ProxyRequest) => void"
+          }
+        ],
+        "returns": "Promise<PluginListenerHandle>",
+        "tags": [
+          {
+            "name": "since",
+            "text": "8.6.0"
+          }
+        ],
+        "docs": "Listen for proxied requests delegated by the native runtime.\nPrefer `addProxyHandler()` instead of calling this directly.",
+        "complexTypes": [
+          "PluginListenerHandle",
+          "ProxyRequest"
+        ],
+        "slug": "addlistenerproxyrequest-"
+      },
+      {
+        "name": "addListener",
+        "signature": "(eventName: 'consoleMessage', listenerFunc: (event: ConsoleMessageEvent) => void) => Promise<PluginListenerHandle>",
+        "parameters": [
+          {
+            "name": "eventName",
+            "docs": "",
+            "type": "'consoleMessage'"
+          },
+          {
+            "name": "listenerFunc",
+            "docs": "",
+            "type": "(event: ConsoleMessageEvent) => void"
+          }
+        ],
+        "returns": "Promise<PluginListenerHandle>",
+        "tags": [
+          {
+            "name": "since",
+            "text": "8.6.0"
+          }
+        ],
+        "docs": "Listen for JavaScript console output emitted by the managed page.\nEnable this with `captureConsoleLogs: true` when opening the webview.",
+        "complexTypes": [
+          "PluginListenerHandle",
+          "ConsoleMessageEvent"
+        ],
+        "slug": "addlistenerconsolemessage-"
+      },
+      {
+        "name": "handleProxyRequest",
+        "signature": "(options: { requestId: string; decision?: ProxyDecision | null; response?: ProxyResponse | null; webviewId?: string; phase?: 'outbound' | 'inbound'; }) => Promise<void>",
+        "parameters": [
+          {
+            "name": "options",
+            "docs": "",
+            "type": "{ requestId: string; decision?: ProxyDecision | null | undefined; response?: ProxyResponse | null | undefined; webviewId?: string | undefined; phase?: 'outbound' | 'inbound' | undefined; }"
+          }
+        ],
+        "returns": "Promise<void>",
+        "tags": [
+          {
+            "name": "since",
+            "text": "8.6.0"
+          }
+        ],
+        "docs": "Internal method used by `addProxyHandler()` to send a proxy decision back to native.\nForward the original `phase` when replying to a manual `proxyRequest` listener.",
+        "complexTypes": [
+          "ProxyDecision",
+          "ProxyResponse"
+        ],
+        "slug": "handleproxyrequest"
+      },
+      {
+        "name": "removeAllListeners",
+        "signature": "() => Promise<void>",
+        "parameters": [],
+        "returns": "Promise<void>",
+        "tags": [
+          {
+            "name": "since",
+            "text": "1.0.0"
+          }
+        ],
+        "docs": "Remove all listeners for this plugin.",
+        "complexTypes": [],
+        "slug": "removealllisteners"
+      },
+      {
+        "name": "reload",
+        "signature": "(options?: { id?: string | undefined; } | undefined) => Promise<any>",
+        "parameters": [
+          {
+            "name": "options",
+            "docs": "",
+            "type": "{ id?: string | undefined; } | undefined"
+          }
+        ],
+        "returns": "Promise<any>",
+        "tags": [
+          {
+            "name": "since",
+            "text": "1.0.0"
+          }
+        ],
+        "docs": "Reload the current web page.",
+        "complexTypes": [],
+        "slug": "reload"
+      },
+      {
+        "name": "updateDimensions",
+        "signature": "(options: DimensionOptions & { id?: string; }) => Promise<void>",
+        "parameters": [
+          {
+            "name": "options",
+            "docs": "Dimension options (width, height, x, y)",
+            "type": "DimensionOptions & { id?: string | undefined; }"
+          }
+        ],
+        "returns": "Promise<void>",
+        "tags": [
+          {
+            "name": "param",
+            "text": "options Dimension options (width, height, x, y)"
+          },
+          {
+            "name": "returns",
+            "text": "Promise that resolves when dimensions are updated"
+          }
+        ],
+        "docs": "Update the dimensions of the webview.\nAllows changing the size and position of the webview at runtime.\nWhen `id` is omitted, targets the active webview.",
+        "complexTypes": [
+          "DimensionOptions"
+        ],
+        "slug": "updatedimensions"
+      },
+      {
+        "name": "setEnabledSafeTopMargin",
+        "signature": "(options: { enabled: boolean; id?: string; }) => Promise<void>",
+        "parameters": [
+          {
+            "name": "options",
+            "docs": "",
+            "type": "{ enabled: boolean; id?: string | undefined; }"
+          }
+        ],
+        "returns": "Promise<void>",
+        "tags": [],
+        "docs": "Sets the enabled safe top margin of the webview at runtime.\nWhen `id` is omitted, targets the active webview.\nOn Web, this method is a no-op and resolves without changing layout.",
+        "complexTypes": [],
+        "slug": "setenabledsafetopmargin"
+      },
+      {
+        "name": "setEnabledSafeBottomMargin",
+        "signature": "(options: { enabled: boolean; id?: string; }) => Promise<void>",
+        "parameters": [
+          {
+            "name": "options",
+            "docs": "",
+            "type": "{ enabled: boolean; id?: string | undefined; }"
+          }
+        ],
+        "returns": "Promise<void>",
+        "tags": [],
+        "docs": "Sets the enabled safe bottom margin of the webview at runtime.\nWhen `id` is omitted, targets the active webview.\nOn Web, this method is a no-op and resolves without changing layout.",
+        "complexTypes": [],
+        "slug": "setenabledsafebottommargin"
+      },
+      {
+        "name": "openSecureWindow",
+        "signature": "(options: OpenSecureWindowOptions) => Promise<OpenSecureWindowResponse>",
+        "parameters": [
+          {
+            "name": "options",
+            "docs": "- the options for the openSecureWindow call",
+            "type": "OpenSecureWindowOptions"
+          }
+        ],
+        "returns": "Promise<OpenSecureWindowResponse>",
+        "tags": [
+          {
+            "name": "param",
+            "text": "options - the options for the openSecureWindow call"
+          }
+        ],
+        "docs": "Opens a secured window for OAuth2 authentication.\n\nOn web, the redirect page should post the final URL to a `BroadcastChannel` and close itself.\nOn mobile, register a custom redirect URI scheme (for example `myapp://oauth_callback/`) in Info.plist and AndroidManifest.xml.\nSee the README section \"openSecureWindow (OAuth)\" for full setup examples.",
+        "complexTypes": [
+          "OpenSecureWindowResponse",
+          "OpenSecureWindowOptions"
+        ],
+        "slug": "opensecurewindow"
+      }
+    ],
+    "properties": []
+  },
+  "interfaces": [
+    {
+      "name": "OpenOptions",
+      "slug": "openoptions",
+      "docs": "",
+      "tags": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "url",
+          "tags": [
+            {
+              "text": "0.1.0",
+              "name": "since"
+            }
+          ],
+          "docs": "Target URL to load.",
+          "complexTypes": [],
+          "type": "string"
+        },
+        {
+          "name": "isPresentAfterPageLoad",
+          "tags": [
+            {
+              "text": "0.1.0",
+              "name": "since"
+            }
+          ],
+          "docs": "if true, the browser will be presented after the page is loaded, if false, the browser will be presented immediately.",
+          "complexTypes": [],
+          "type": "boolean | undefined"
+        },
+        {
+          "name": "preventDeeplink",
+          "tags": [
+            {
+              "text": "0.1.0",
+              "name": "since"
+            }
+          ],
+          "docs": "if true the deeplink will not be opened, if false the deeplink will be opened when clicked on the link",
+          "complexTypes": [],
+          "type": "boolean | undefined"
+        },
+        {
+          "name": "toolbarColor",
+          "tags": [
+            {
+              "text": "8.2.0",
+              "name": "since"
+            }
+          ],
+          "docs": "Toolbar background color in hex format (e.g., \"#1A1A2E\").\nApplied to both light and dark color schemes.\nAlso sets the navigation bar color to match.\n**Android only** — ignored on iOS.",
+          "complexTypes": [],
+          "type": "string | undefined"
+        },
+        {
+          "name": "urlBarHidingEnabled",
+          "tags": [
+            {
+              "text": "false",
+              "name": "default"
+            },
+            {
+              "text": "8.2.0",
+              "name": "since"
+            }
+          ],
+          "docs": "Whether the URL bar should auto-hide when the user scrolls down.\nThe bar reappears on any upward scroll.\n**Android only** — ignored on iOS.",
+          "complexTypes": [],
+          "type": "boolean | undefined"
+        },
+        {
+          "name": "showTitle",
+          "tags": [
+            {
+              "text": "false",
+              "name": "default"
+            },
+            {
+              "text": "8.2.0",
+              "name": "since"
+            }
+          ],
+          "docs": "Show the page's HTML <title> in the toolbar instead of the raw URL.\nThe true URL is still visible when the user taps the title area.\n**Android only** — ignored on iOS.",
+          "complexTypes": [],
+          "type": "boolean | undefined"
+        },
+        {
+          "name": "showArrow",
+          "tags": [
+            {
+              "text": "false",
+              "name": "default"
+            },
+            {
+              "text": "8.2.0",
+              "name": "since"
+            }
+          ],
+          "docs": "Replace the default \"X\" close icon with a back arrow.\nMakes the Custom Tab feel like a native navigation push rather than a modal overlay.\n**Android only** — ignored on iOS.",
+          "complexTypes": [],
+          "type": "boolean | undefined"
+        },
+        {
+          "name": "disableShare",
+          "tags": [
+            {
+              "text": "false",
+              "name": "default"
+            },
+            {
+              "text": "8.2.0",
+              "name": "since"
+            }
+          ],
+          "docs": "Remove the share action from the overflow menu.\n**Android only** — ignored on iOS.",
+          "complexTypes": [],
+          "type": "boolean | undefined"
+        },
+        {
+          "name": "disableBookmark",
+          "tags": [
+            {
+              "text": "false",
+              "name": "default"
+            },
+            {
+              "text": "8.2.0",
+              "name": "since"
+            }
+          ],
+          "docs": "Hide the bookmark star icon in the overflow menu.\nUses an undocumented Chromium intent extra — may stop working on future Chrome updates.\n**Android only** — ignored on iOS.",
+          "complexTypes": [],
+          "type": "boolean | undefined"
+        },
+        {
+          "name": "disableDownload",
+          "tags": [
+            {
+              "text": "false",
+              "name": "default"
+            },
+            {
+              "text": "8.2.0",
+              "name": "since"
+            }
+          ],
+          "docs": "Hide the download icon in the overflow menu.\nUses an undocumented Chromium intent extra — may stop working on future Chrome updates.\n**Android only** — ignored on iOS.",
+          "complexTypes": [],
+          "type": "boolean | undefined"
+        }
+      ]
+    },
+    {
+      "name": "ClearCookieOptions",
+      "slug": "clearcookieoptions",
+      "docs": "",
+      "tags": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "id",
+          "tags": [],
+          "docs": "Target webview id.\nWhen omitted, applies to all open webviews.",
+          "complexTypes": [],
+          "type": "string | undefined"
+        },
+        {
+          "name": "url",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [],
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "name": "HttpCookie",
+      "slug": "httpcookie",
+      "docs": "",
+      "tags": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "url",
+          "tags": [],
+          "docs": "The URL of the cookie.",
+          "complexTypes": [],
+          "type": "string | undefined"
+        },
+        {
+          "name": "key",
+          "tags": [],
+          "docs": "The key of the cookie.",
+          "complexTypes": [],
+          "type": "string"
+        },
+        {
+          "name": "value",
+          "tags": [],
+          "docs": "The value of the cookie.",
+          "complexTypes": [],
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "name": "GetCookieOptions",
+      "slug": "getcookieoptions",
+      "docs": "",
+      "tags": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "url",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [],
+          "type": "string"
+        },
+        {
+          "name": "includeHttpOnly",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [],
+          "type": "boolean | undefined"
+        }
+      ]
+    },
+    {
+      "name": "CloseWebviewOptions",
+      "slug": "closewebviewoptions",
+      "docs": "",
+      "tags": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "id",
+          "tags": [],
+          "docs": "Target webview id to close. If omitted, closes the active webview.",
+          "complexTypes": [],
+          "type": "string | undefined"
+        },
+        {
+          "name": "isAnimated",
+          "tags": [
+            {
+              "text": "true",
+              "name": "default"
+            }
+          ],
+          "docs": "Whether the webview closing is animated or not, ios only",
+          "complexTypes": [],
+          "type": "boolean | undefined"
+        }
+      ]
+    },
+    {
+      "name": "LayerOptions",
+      "slug": "layeroptions",
+      "docs": "",
+      "tags": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "id",
+          "tags": [],
+          "docs": "Target webview id. If omitted, targets the active webview.",
+          "complexTypes": [],
+          "type": "string | undefined"
+        },
+        {
+          "name": "transparentBackground",
+          "tags": [
+            {
+              "text": "true",
+              "name": "default"
+            }
+          ],
+          "docs": "Makes the Capacitor host WebView transparent while this native webview is behind it.",
+          "complexTypes": [],
+          "type": "boolean | undefined"
+        }
+      ]
+    },
+    {
+      "name": "BringToFrontOptions",
+      "slug": "bringtofrontoptions",
+      "docs": "",
+      "tags": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "id",
+          "tags": [],
+          "docs": "Target webview id. If omitted, targets the active webview.",
+          "complexTypes": [],
+          "type": "string | undefined"
+        },
+        {
+          "name": "isAnimated",
+          "tags": [
+            {
+              "text": "true",
+              "name": "default"
+            }
+          ],
+          "docs": "Whether bringing the webview to the front is animated on iOS.",
+          "complexTypes": [],
+          "type": "boolean | undefined"
+        }
+      ]
+    },
+    {
+      "name": "DispatchPointerInputEventOptions",
+      "slug": "dispatchpointerinputeventoptions",
+      "docs": "",
+      "tags": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "id",
+          "tags": [],
+          "docs": "Target webview id. If omitted, targets the active webview.",
+          "complexTypes": [],
+          "type": "string | undefined"
+        },
+        {
+          "name": "type",
+          "tags": [],
+          "docs": "Input event to dispatch to the webview.",
+          "complexTypes": [
+            "WebViewPointerInputEventType"
+          ],
+          "type": "WebViewPointerInputEventType"
+        },
+        {
+          "name": "x",
+          "tags": [],
+          "docs": "X coordinate in CSS pixels from the webview's left edge.",
+          "complexTypes": [],
+          "type": "number"
+        },
+        {
+          "name": "y",
+          "tags": [],
+          "docs": "Y coordinate in CSS pixels from the webview's top edge.",
+          "complexTypes": [],
+          "type": "number"
+        }
+      ]
+    },
+    {
+      "name": "DispatchScrollInputEventOptions",
+      "slug": "dispatchscrollinputeventoptions",
+      "docs": "",
+      "tags": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "id",
+          "tags": [],
+          "docs": "Target webview id. If omitted, targets the active webview.",
+          "complexTypes": [],
+          "type": "string | undefined"
+        },
+        {
+          "name": "type",
+          "tags": [],
+          "docs": "Input event to dispatch to the webview.",
+          "complexTypes": [],
+          "type": "'scroll'"
+        },
+        {
+          "name": "x",
+          "tags": [],
+          "docs": "X coordinate in CSS pixels from the webview's left edge.",
+          "complexTypes": [],
+          "type": "number"
+        },
+        {
+          "name": "y",
+          "tags": [],
+          "docs": "Y coordinate in CSS pixels from the webview's top edge.",
+          "complexTypes": [],
+          "type": "number"
+        },
+        {
+          "name": "deltaX",
+          "tags": [],
+          "docs": "Horizontal scroll delta in CSS pixels. Used when `type` is `scroll`.",
+          "complexTypes": [],
+          "type": "number"
+        },
+        {
+          "name": "deltaY",
+          "tags": [],
+          "docs": "Vertical scroll delta in CSS pixels. Used when `type` is `scroll`.",
+          "complexTypes": [],
+          "type": "number"
+        }
+      ]
+    },
+    {
+      "name": "OpenWebViewOptions",
+      "slug": "openwebviewoptions",
+      "docs": "",
+      "tags": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "url",
+          "tags": [
+            {
+              "text": "0.1.0",
+              "name": "since"
+            },
+            {
+              "text": "\"https://capgo.app\"",
+              "name": "example"
+            }
+          ],
+          "docs": "Target URL to load.",
+          "complexTypes": [],
+          "type": "string"
+        },
+        {
+          "name": "headers",
+          "tags": [
+            {
+              "text": "0.1.0",
+              "name": "since"
+            },
+            {
+              "text": "headers: {\n  \"Custom-Header\": \"test-value\",\n  \"Authorization\": \"Bearer test-token\"\n}\nTest URL: https://www.whatismybrowser.com/detect/what-http-headers-is-my-browser-sending/",
+              "name": "example"
+            }
+          ],
+          "docs": "Headers to send with the request.",
+          "complexTypes": [
+            "Headers"
+          ],
+          "type": "Headers"
+        },
+        {
+          "name": "customUserAgent",
+          "tags": [
+            {
+              "text": "8.13.0",
+              "name": "since"
+            },
+            {
+              "text": "customUserAgent: \"MyApp/1.0 (Capacitor)\"\nTest URL: https://www.whatismybrowser.com/detect/what-is-my-user-agent/",
+              "name": "example"
+            }
+          ],
+          "docs": "Custom User-Agent string for the webview.\n\nWhen set, replaces the system default webview User-Agent on iOS and Android.\nTakes precedence over a `User-Agent` entry in `headers`.",
+          "complexTypes": [],
+          "type": "string | undefined"
+        },
+        {
+          "name": "credentials",
+          "tags": [
+            {
+              "text": "6.1.0",
+              "name": "since"
+            },
+            {
+              "text": "credentials: {\n  username: \"test-user\",\n  password: \"test-pass\"\n}\nTest URL: https://www.whatismybrowser.com/detect/what-http-headers-is-my-browser-sending/",
+              "name": "example"
+            }
+          ],
+          "docs": "Credentials to send with the request and all subsequent requests for the same host.",
+          "complexTypes": [
+            "Credentials"
+          ],
+          "type": "Credentials"
+        },
+        {
+          "name": "method",
+          "tags": [
+            {
+              "text": "8.2.0",
+              "name": "since"
+            },
+            {
+              "text": "\"GET\"",
+              "name": "default"
+            },
+            {
+              "text": "method: \"POST\",\nbody: JSON.stringify({ token: \"auth-token\", data: \"value\" }),\nheaders: { \"Content-Type\": \"application/json\" }",
+              "name": "example"
+            }
+          ],
+          "docs": "HTTP method to use for the initial request.\n\n**Optional parameter - defaults to GET if not specified.**\nExisting code that doesn't provide this parameter will continue to work unchanged with standard GET requests.\n\nWhen specified with 'POST', 'PUT', or 'PATCH' methods that support a body,\nyou can also provide a `body` parameter with the request payload.\n\n**Platform Notes:**\n- iOS: Full support for all HTTP methods with headers\n- Android: Custom headers may not be sent with POST/PUT/PATCH requests due to WebView limitations",
+          "complexTypes": [],
+          "type": "string | undefined"
+        },
+        {
+          "name": "body",
+          "tags": [
+            {
+              "text": "8.2.0",
+              "name": "since"
+            },
+            {
+              "text": "method: \"POST\",\nbody: JSON.stringify({ username: \"user\", password: \"pass\" }),\nheaders: { \"Content-Type\": \"application/json\" }",
+              "name": "example"
+            }
+          ],
+          "docs": "HTTP body to send with the request when using POST, PUT, or other methods that support a body.\nShould be a string (use JSON.stringify for JSON data).\n\n**Optional parameter - only used when `method` is specified and supports a request body.**\nOmitting this parameter (or using GET method) results in standard behavior without a request body.",
+          "complexTypes": [],
+          "type": "string | undefined"
+        },
+        {
+          "name": "materialPicker",
+          "tags": [
+            {
+              "text": "7.4.1",
+              "name": "since"
+            },
+            {
+              "text": "false",
+              "name": "default"
+            },
+            {
+              "text": "materialPicker: true\nTest URL: https://show-picker.glitch.me/demo.html",
+              "name": "example"
+            }
+          ],
+          "docs": "materialPicker: if true, uses Material Design theme for date and time pickers on Android.\nThis improves the appearance of HTML date inputs to use modern Material Design UI instead of the old style pickers.",
+          "complexTypes": [],
+          "type": "boolean | undefined"
+        },
+        {
+          "name": "jsInterface",
+          "tags": [
+            {
+              "text": "// In your webpage loaded in the webview:\ndocument.getElementById(\"closeBtn\").addEventListener(\"click\", () => {\n  window.mobileApp.close();\n});\n\n// Send data to the app\nwindow.mobileApp.postMessage({ action: \"login\", data: { user: \"test\" }});",
+              "name": "example"
+            },
+            {
+              "text": "6.10.0",
+              "name": "since"
+            }
+          ],
+          "docs": "JavaScript Interface:\nThe webview automatically injects a JavaScript interface providing:\n- `window.mobileApp.close()`: Closes the webview from JavaScript\n- `window.mobileApp.postMessage(obj)`: Sends a message to the app (listen via \"messageFromWebview\" event)\n- `window.mobileApp.hide()` / `window.mobileApp.show()` when allowWebViewJsVisibilityControl is true in CapacitorConfig\n- `window.mobileApp.takeScreenshot()` when `allowScreenshotsFromWebPage` is true",
+          "complexTypes": [],
+          "type": "undefined"
+        },
+        {
+          "name": "allowScreenshotsFromWebPage",
+          "tags": [
+            {
+              "text": "false",
+              "name": "default"
+            },
+            {
+              "text": "8.4.0",
+              "name": "since"
+            }
+          ],
+          "docs": "Allows page JavaScript to call `window.mobileApp.takeScreenshot()`.\nDisabled by default so only the host app can trigger native screenshots through the plugin API.",
+          "complexTypes": [],
+          "type": "boolean | undefined"
+        },
+        {
+          "name": "captureConsoleLogs",
+          "tags": [
+            {
+              "text": "false",
+              "name": "default"
+            },
+            {
+              "text": "8.6.0",
+              "name": "since"
+            }
+          ],
+          "docs": "Emits `consoleMessage` events for JavaScript `console.*` output coming from the managed page.\nUseful when the webview stays hidden and you still need page-level diagnostics.",
+          "complexTypes": [],
+          "type": "boolean | undefined"
+        },
+        {
+          "name": "persistWebViewData",
+          "tags": [
+            {
+              "text": "true",
+              "name": "default"
+            },
+            {
+              "text": "8.6.36",
+              "name": "since"
+            }
+          ],
+          "docs": "Controls whether the webview should persist website data such as cache, cookies, local storage,\nIndexedDB, and session data.\n\nWhen false, iOS uses a non-persistent `WKWebsiteDataStore`. Android disables per-view cache and\nDOM/database storage where the system WebView supports it. Android cookies use the shared\nWebView cookie store, so call `clearAllBrowsingData()` to remove cookies and other global data.",
+          "complexTypes": [],
+          "type": "boolean | undefined"
+        },
+        {
+          "name": "clientCertificate",
+          "tags": [
+            {
+              "text": "\"none\"",
+              "name": "default"
+            },
+            {
+              "text": "8.7.5",
+              "name": "since"
+            }
+          ],
+          "docs": "Controls Android TLS client certificate prompts during HTTPS handshakes.\nUse `prompt` to show the system certificate picker; omit or use `none` to cancel silently (default).",
+          "complexTypes": [],
+          "type": "'none' | 'prompt' | undefined"
+        },
+        {
+          "name": "clientCertificatePrompt",
+          "tags": [
+            {
+              "text": "Use `clientCertificate: \"prompt\"` instead.",
+              "name": "deprecated"
+            }
+          ],
+          "docs": "",
+          "complexTypes": [],
+          "type": "boolean | undefined"
+        },
+        {
+          "name": "handleDownloads",
+          "tags": [
+            {
+              "text": "false",
+              "name": "default"
+            },
+            {
+              "text": "8.6.0",
+              "name": "since"
+            }
+          ],
+          "docs": "Automatically handles downloads triggered inside the webview without requiring a custom JavaScript bridge.\n\nWhen enabled:\n- Standard attachment responses are written to a temporary file.\n- `blob:` downloads are also captured when the platform supports them.\n- Previewable files reopen inside the in-app browser when possible.\n- Other files are handed off to the native preview or viewer flow.\n- `downloadCompleted` and `downloadFailed` events notify the host app about the saved file.",
+          "complexTypes": [],
+          "type": "boolean | undefined"
+        },
+        {
+          "name": "shareDisclaimer",
+          "tags": [
+            {
+              "text": "0.1.0",
+              "name": "since"
+            },
+            {
+              "text": "shareDisclaimer: {\n  title: \"Disclaimer\",\n  message: \"This is a test disclaimer\",\n  confirmBtn: \"Accept\",\n  cancelBtn: \"Decline\"\n}\nTest URL: https://capgo.app",
+              "name": "example"
+            }
+          ],
+          "docs": "Share options for the webview. When provided, shows a disclaimer dialog before sharing content.\nThis is useful for:\n- Warning users about sharing sensitive information\n- Getting user consent before sharing\n- Explaining what will be shared\n- Complying with privacy regulations\n\nNote: shareSubject is required when using shareDisclaimer",
+          "complexTypes": [
+            "DisclaimerOptions"
+          ],
+          "type": "DisclaimerOptions"
+        },
+        {
+          "name": "toolbarType",
+          "tags": [
+            {
+              "text": "0.1.0",
+              "name": "since"
+            },
+            {
+              "text": "ToolBarType.DEFAULT",
+              "name": "default"
+            },
+            {
+              "text": "toolbarType: ToolBarType.ACTIVITY,\ntitle: \"Activity Toolbar Test\"\nTest URL: https://capgo.app",
+              "name": "example"
+            }
+          ],
+          "docs": "Toolbar type determines the appearance and behavior of the browser's toolbar\n- \"activity\": Shows a simple toolbar with just a close button and share button\n- \"navigation\": Shows a full navigation toolbar with back/forward buttons\n- \"blank\": Shows no toolbar\n- \"\": Default toolbar with close button",
+          "complexTypes": [
+            "ToolBarType"
+          ],
+          "type": "ToolBarType"
+        },
+        {
+          "name": "shareSubject",
+          "tags": [
+            {
+              "text": "0.1.0",
+              "name": "since"
+            },
+            {
+              "text": "\"Share this page\"",
+              "name": "example"
+            }
+          ],
+          "docs": "Subject text for sharing. Required when using shareDisclaimer.\nThis text will be used as the subject line when sharing content.",
+          "complexTypes": [],
+          "type": "string | undefined"
+        },
+        {
+          "name": "title",
+          "tags": [
+            {
+              "text": "0.1.0",
+              "name": "since"
+            },
+            {
+              "text": "\"New Window\"",
+              "name": "default"
+            },
+            {
+              "text": "\"Camera Test\"",
+              "name": "example"
+            }
+          ],
+          "docs": "Title of the browser",
+          "complexTypes": [],
+          "type": "string | undefined"
+        },
+        {
+          "name": "titleFontFamily",
+          "tags": [
+            {
+              "text": "8.7.7",
+              "name": "since"
+            },
+            {
+              "text": "\"Inter\"",
+              "name": "example"
+            }
+          ],
+          "docs": "Native toolbar title font family.\nOn iOS, use the registered font family name. On Android, the plugin first tries a res/font resource name,\nthen falls back to a system font family name.",
+          "complexTypes": [],
+          "type": "string | undefined"
+        },
+        {
+          "name": "titleIcon",
+          "tags": [
+            {
+              "text": "8.7.7",
+              "name": "since"
+            },
+            {
+              "text": "titleIcon: {\n  ios: { iconType: \"sf-symbol\", icon: \"lock.fill\" },\n  android: { iconType: \"vector\", icon: \"ic_lock\", width: 20, height: 20 }\n}",
+              "name": "example"
+            }
+          ],
+          "docs": "Native toolbar title icon displayed before the title text.\n\nFor Android:\n- iconType can be \"asset\" for a bundled SVG asset or \"vector\" for a drawable resource\n- icon path should be in the public folder for assets (e.g. \"brand.svg\")\n- width and height are optional and default to 24dp\n\nFor iOS:\n- iconType can be \"sf-symbol\" or \"asset\"\n- for sf-symbol, icon should be the symbol name\n- for asset, icon should be the asset name or bundled web asset path",
+          "complexTypes": [
+            "ToolbarTitleIconOptions"
+          ],
+          "type": "ToolbarTitleIconOptions"
+        },
+        {
+          "name": "backgroundColor",
+          "tags": [
+            {
+              "text": "0.1.0",
+              "name": "since"
+            },
+            {
+              "text": "BackgroundColor.BLACK",
+              "name": "default"
+            }
+          ],
+          "docs": "Background color of the browser",
+          "complexTypes": [
+            "BackgroundColor"
+          ],
+          "type": "BackgroundColor"
+        },
+        {
+          "name": "activeNativeNavigationForWebview",
+          "tags": [
+            {
+              "text": "false (Android), true (iOS - enabled by default)",
+              "name": "default"
+            },
+            {
+              "text": "activeNativeNavigationForWebview: true,\ndisableGoBackOnNativeApplication: true\nTest URL: https://capgo.app",
+              "name": "example"
+            }
+          ],
+          "docs": "If true, enables native navigation gestures within the webview.\n- Android: Native back button navigates within webview history\n- iOS: Enables swipe left/right gestures for back/forward navigation",
+          "complexTypes": [],
+          "type": "boolean | undefined"
+        },
+        {
+          "name": "enableReloadGesture",
+          "tags": [
+            {
+              "text": "8.10.8",
+              "name": "since"
+            },
+            {
+              "text": "false",
+              "name": "default"
+            },
+            {
+              "text": "enableReloadGesture: true",
+              "name": "example"
+            }
+          ],
+          "docs": "Enable pull-to-refresh (overscroll from top) to reload the current page.\n- iOS: Uses UIRefreshControl on the WebView scroll view (reload commits on finger release)\n- Android: Uses SwipeRefreshLayout around the WebView\n\nOn iOS, this requires overscroll bounce. If `disableOverscroll` is `true`,\nthe reload gesture will not work.",
+          "complexTypes": [],
+          "type": "boolean | undefined"
+        },
+        {
+          "name": "disableGoBackOnNativeApplication",
+          "tags": [
+            {
+              "text": "false",
+              "name": "default"
+            },
+            {
+              "text": "disableGoBackOnNativeApplication: true\nTest URL: https://capgo.app",
+              "name": "example"
+            }
+          ],
+          "docs": "Disable the possibility to go back on native application,\nuseful to force user to stay on the webview, Android only",
+          "complexTypes": [],
+          "type": "boolean | undefined"
+        },
+        {
+          "name": "isPresentAfterPageLoad",
+          "tags": [
+            {
+              "text": "0.1.0",
+              "name": "since"
+            },
+            {
+              "text": "false",
+              "name": "default"
+            },
+            {
+              "text": "isPresentAfterPageLoad: true,\npreShowScript: \"await import('https://unpkg.com/darkreader@4.9.89/darkreader.js');\\nDarkReader.enable({ brightness: 100, contrast: 90, sepia: 10 });\"\nTest URL: https://capgo.app",
+              "name": "example"
+            }
+          ],
+          "docs": "Open url in a new window fullscreen\nisPresentAfterPageLoad: if true, the browser will be presented after the page is loaded, if false, the browser will be presented immediately.\nPromise timing: on Android, `openWebView()` resolves with the webview id when the webview is ready to be controlled\n(immediately for hidden/immediate presentation, after the first page load when `isPresentAfterPageLoad` is `true`).\nOn iOS, the promise resolves with the id as soon as the native webview is created, even if presentation is deferred.",
+          "complexTypes": [],
+          "type": "boolean | undefined"
+        },
+        {
+          "name": "isInspectable",
+          "tags": [
+            {
+              "text": "false",
+              "name": "default"
+            }
+          ],
+          "docs": "Whether the website in the webview is inspectable or not, ios only",
+          "complexTypes": [],
+          "type": "boolean | undefined"
+        },
+        {
+          "name": "isAnimated",
+          "tags": [
+            {
+              "text": "true",
+              "name": "default"
+            }
+          ],
+          "docs": "Whether the webview opening is animated or not, ios only",
+          "complexTypes": [],
+          "type": "boolean | undefined"
+        },
+        {
+          "name": "showReloadButton",
+          "tags": [
+            {
+              "text": "1.0.15",
+              "name": "since"
+            },
+            {
+              "text": "false",
+              "name": "default"
+            },
+            {
+              "text": "showReloadButton: true\nTest URL: https://capgo.app",
+              "name": "example"
+            }
+          ],
+          "docs": "Shows a reload button that reloads the web page",
+          "complexTypes": [],
+          "type": "boolean | undefined"
+        },
+        {
+          "name": "closeAction",
+          "tags": [
+            {
+              "text": "CloseAction.CLOSE",
+              "name": "default"
+            },
+            {
+              "text": "8.7.7",
+              "name": "since"
+            },
+            {
+              "text": "closeAction: CloseAction.HIDE",
+              "name": "example"
+            }
+          ],
+          "docs": "closeAction controls what happens when the native toolbar close button is pressed.\nThis does not change the behavior of close(), JavaScript window.mobileApp.close(), or native back navigation.",
+          "complexTypes": [
+            "CloseAction"
+          ],
+          "type": "CloseAction"
+        },
+        {
+          "name": "screenshotOnHide",
+          "tags": [
+            {
+              "text": "false",
+              "name": "default"
+            },
+            {
+              "text": "8.7.10",
+              "name": "since"
+            }
+          ],
+          "docs": "Captures the visible webview and includes it as `screenshot` in `hideEvent`\nbefore the toolbar close button hides the webview.\n\nOnly applies when `closeAction` is `CloseAction.HIDE`.\n\nOn iOS, capture uses `WKWebView.takeSnapshot`. When testing through Apple's\niPhone Mirroring app with the physical device locked, the snapshot can succeed\nwith the correct dimensions but a fully transparent PNG. Capture works as\nexpected on a normal unlocked device. This appears to be an Apple mirroring\nlimitation rather than a plugin bug.",
+          "complexTypes": [],
+          "type": "boolean | undefined"
+        },
+        {
+          "name": "closeModal",
+          "tags": [
+            {
+              "text": "1.1.0",
+              "name": "since"
+            },
+            {
+              "text": "false",
+              "name": "default"
+            },
+            {
+              "text": "closeModal: true,\ncloseModalTitle: \"Close Window\",\ncloseModalDescription: \"Are you sure you want to close?\",\ncloseModalOk: \"Yes, close\",\ncloseModalCancel: \"No, stay\"\nTest URL: https://capgo.app",
+              "name": "example"
+            }
+          ],
+          "docs": "CloseModal: if true a confirm will be displayed when user clicks on close button, if false the browser will be closed immediately.",
+          "complexTypes": [],
+          "type": "boolean | undefined"
+        },
+        {
+          "name": "closeModalTitle",
+          "tags": [
+            {
+              "text": "1.1.0",
+              "name": "since"
+            },
+            {
+              "text": "\"Close\"",
+              "name": "default"
+            }
+          ],
+          "docs": "CloseModalTitle: title of the confirm when user clicks on close button",
+          "complexTypes": [],
+          "type": "string | undefined"
+        },
+        {
+          "name": "closeModalDescription",
+          "tags": [
+            {
+              "text": "1.1.0",
+              "name": "since"
+            },
+            {
+              "text": "\"Are you sure you want to close this window?\"",
+              "name": "default"
+            }
+          ],
+          "docs": "CloseModalDescription: description of the confirm when user clicks on close button",
+          "complexTypes": [],
+          "type": "string | undefined"
+        },
+        {
+          "name": "closeModalOk",
+          "tags": [
+            {
+              "text": "1.1.0",
+              "name": "since"
+            },
+            {
+              "text": "\"Close\"",
+              "name": "default"
+            }
+          ],
+          "docs": "CloseModalOk: text of the confirm button when user clicks on close button",
+          "complexTypes": [],
+          "type": "string | undefined"
+        },
+        {
+          "name": "closeModalCancel",
+          "tags": [
+            {
+              "text": "1.1.0",
+              "name": "since"
+            },
+            {
+              "text": "\"Cancel\"",
+              "name": "default"
+            }
+          ],
+          "docs": "CloseModalCancel: text of the cancel button when user clicks on close button",
+          "complexTypes": [],
+          "type": "string | undefined"
+        },
+        {
+          "name": "closeModalURLPattern",
+          "tags": [
+            {
+              "text": "7.2.0",
+              "name": "since"
+            },
+            {
+              "text": "closeModal: true,\ncloseModalURLPattern: \".*checkout.*\"",
+              "name": "example"
+            }
+          ],
+          "docs": "closeModalURLPattern: a regex pattern to match against the current URL when the close button is pressed.\nWhen provided along with closeModal: true, the close confirmation modal is only shown if the current URL matches this pattern.\nIf the current URL does not match, the browser closes immediately without showing the modal.\nRequires closeModal to be true.",
+          "complexTypes": [],
+          "type": "string | undefined"
+        },
+        {
+          "name": "visibleTitle",
+          "tags": [
+            {
+              "text": "1.2.5",
+              "name": "since"
+            },
+            {
+              "text": "true",
+              "name": "default"
+            }
+          ],
+          "docs": "visibleTitle: if true the website title would be shown else shown empty",
+          "complexTypes": [],
+          "type": "boolean | undefined"
+        },
+        {
+          "name": "toolbarColor",
+          "tags": [
+            {
+              "text": "1.2.5",
+              "name": "since"
+            },
+            {
+              "text": "\"#ffffff\"",
+              "name": "default"
+            },
+            {
+              "text": "toolbarColor: \"#FF5733\"\nTest URL: https://capgo.app",
+              "name": "example"
+            }
+          ],
+          "docs": "toolbarColor: color of the toolbar in hex format",
+          "complexTypes": [],
+          "type": "string | undefined"
+        },
+        {
+          "name": "toolbarTextColor",
+          "tags": [
+            {
+              "text": "6.10.0",
+              "name": "since"
+            },
+            {
+              "text": "calculated based on toolbarColor brightness",
+              "name": "default"
+            },
+            {
+              "text": "toolbarTextColor: \"#FFFFFF\"\nTest URL: https://capgo.app",
+              "name": "example"
+            }
+          ],
+          "docs": "toolbarTextColor: color of the buttons and title in the toolbar in hex format\nWhen set, it overrides the automatic light/dark mode detection for text color",
+          "complexTypes": [],
+          "type": "string | undefined"
+        },
+        {
+          "name": "showArrow",
+          "tags": [
+            {
+              "text": "1.2.5",
+              "name": "since"
+            },
+            {
+              "text": "false",
+              "name": "default"
+            },
+            {
+              "text": "showArrow: true\nTest URL: https://capgo.app",
+              "name": "example"
+            }
+          ],
+          "docs": "showArrow: if true an arrow would be shown instead of cross for closing the window",
+          "complexTypes": [],
+          "type": "boolean | undefined"
+        },
+        {
+          "name": "ignoreUntrustedSSLError",
+          "tags": [
+            {
+              "text": "6.1.0",
+              "name": "since"
+            },
+            {
+              "text": "false",
+              "name": "default"
+            }
+          ],
+          "docs": "ignoreUntrustedSSLError: if true, the webview will ignore untrusted SSL errors allowing the user to view the website.",
+          "complexTypes": [],
+          "type": "boolean | undefined"
+        },
+        {
+          "name": "preShowScript",
+          "tags": [
+            {
+              "text": "6.6.0",
+              "name": "since"
+            },
+            {
+              "text": "preShowScript: \"await import('https://unpkg.com/darkreader@4.9.89/darkreader.js');\\nDarkReader.enable({ brightness: 100, contrast: 90, sepia: 10 });\"\nTest URL: https://capgo.app",
+              "name": "example"
+            }
+          ],
+          "docs": "preShowScript: if isPresentAfterPageLoad is true and this variable is set the plugin will inject a script before showing the browser.\nThis script will be run in an async context. The plugin will wait for the script to finish (max 10 seconds)",
+          "complexTypes": [],
+          "type": "string | undefined"
+        },
+        {
+          "name": "preShowScriptInjectionTime",
+          "tags": [
+            {
+              "text": "7.26.0",
+              "name": "since"
+            },
+            {
+              "text": "\"pageLoad\"",
+              "name": "default"
+            },
+            {
+              "text": "preShowScriptInjectionTime: \"documentStart\"",
+              "name": "example"
+            }
+          ],
+          "docs": "preShowScriptInjectionTime: controls when the preShowScript is injected.\n- \"documentStart\": injects before any page JavaScript runs (good for polyfills like Firebase)\n- \"pageLoad\": injects after page load (default, original behavior)",
+          "complexTypes": [],
+          "type": "'documentStart' | 'pageLoad' | undefined"
+        },
+        {
+          "name": "proxyRequests",
+          "tags": [
+            {
+              "text": "6.9.0",
+              "name": "since"
+            }
+          ],
+          "docs": "Proxy interception mode.\n\n- `true`: legacy blanket mode, delegates all HTTP/HTTPS requests to JavaScript.\n- `string`: Android-only regex mode kept for backward compatibility.\n\nPrefer `outboundProxyRules` and `inboundProxyRules` for native-first matching.",
+          "complexTypes": [],
+          "type": "string | boolean | undefined"
+        },
+        {
+          "name": "outboundProxyRules",
+          "tags": [
+            {
+              "text": "8.6.0",
+              "name": "since"
+            }
+          ],
+          "docs": "Native-first outbound proxy rules.",
+          "complexTypes": [
+            "NativeProxyRule"
+          ],
+          "type": "NativeProxyRule[] | undefined"
+        },
+        {
+          "name": "inboundProxyRules",
+          "tags": [
+            {
+              "text": "8.6.0",
+              "name": "since"
+            }
+          ],
+          "docs": "Native-first inbound proxy rules.",
+          "complexTypes": [
+            "NativeProxyRule"
+          ],
+          "type": "NativeProxyRule[] | undefined"
+        },
+        {
+          "name": "buttonNearDone",
+          "tags": [
+            {
+              "text": "6.7.0",
+              "name": "since"
+            },
+            {
+              "text": "buttonNearDone: {\n  ios: {\n    iconType: \"sf-symbol\",\n    icon: \"star.fill\"\n  },\n  android: {\n    iconType: \"asset\",\n    icon: \"public/monkey.svg\",\n    width: 24,\n    height: 24\n  }\n}\nTest URL: https://capgo.app",
+              "name": "example"
+            }
+          ],
+          "docs": "buttonNearDone allows for a creation of a custom button near the done/close button.\nThe button is only shown when toolbarType is not \"activity\", \"navigation\", or \"blank\".\n\nFor Android:\n- iconType must be \"asset\"\n- icon path should be in the public folder (e.g. \"monkey.svg\")\n- width and height are optional, defaults to 48dp\n- button is positioned at the end of toolbar with 8dp margin\n\nFor iOS:\n- iconType can be \"sf-symbol\" or \"asset\"\n- for sf-symbol, icon should be the symbol name\n- for asset, icon should be the asset name",
+          "complexTypes": [],
+          "type": "{ ios: { iconType: 'sf-symbol' | 'asset'; icon: string; }; android: { iconType: 'asset' | 'vector'; icon: string; width?: number | undefined; height?: number | undefined; }; } | undefined"
+        },
+        {
+          "name": "showScreenshotButton",
+          "tags": [
+            {
+              "text": "false",
+              "name": "default"
+            },
+            {
+              "text": "8.4.0",
+              "name": "since"
+            }
+          ],
+          "docs": "Shows a native screenshot button near the done/close button.\nThe button is hidden by default and captures the current viewport when tapped.\nThis option uses the same toolbar slot as `buttonNearDone` and is therefore incompatible with it.\nThe button is only shown when toolbarType is not \"activity\", \"navigation\", or \"blank\".",
+          "complexTypes": [],
+          "type": "boolean | undefined"
+        },
+        {
+          "name": "textZoom",
+          "tags": [
+            {
+              "text": "7.6.0",
+              "name": "since"
+            },
+            {
+              "text": "100",
+              "name": "default"
+            },
+            {
+              "text": "textZoom: 120\nTest URL: https://capgo.app",
+              "name": "example"
+            }
+          ],
+          "docs": "textZoom: sets the text zoom of the page in percent.\nAllows users to increase or decrease the text size for better readability.",
+          "complexTypes": [],
+          "type": "number | undefined"
+        },
+        {
+          "name": "enableZoom",
+          "tags": [
+            {
+              "text": "8.5.0",
+              "name": "since"
+            },
+            {
+              "text": "false",
+              "name": "default"
+            },
+            {
+              "text": "enableZoom: true",
+              "name": "example"
+            }
+          ],
+          "docs": "enableZoom: enables pinch-to-zoom gestures in the Android WebView.\nWhen true, built-in zoom controls are enabled and the zoom buttons are hidden.\n**Android only** — ignored on iOS where zoom is enabled by default.",
+          "complexTypes": [],
+          "type": "boolean | undefined"
+        },
+        {
+          "name": "preventDeeplink",
+          "tags": [
+            {
+              "text": "0.1.0",
+              "name": "since"
+            },
+            {
+              "text": "false",
+              "name": "default"
+            },
+            {
+              "text": "preventDeeplink: true\nTest URL: https://aasa-tester.capgo.app/",
+              "name": "example"
+            }
+          ],
+          "docs": "If true, deeplinks and external app hand-off are blocked and stay in the webview.\nIf false (default), custom schemes such as `tel:`, `mailto:`, and `sms:` open natively.\nOn iOS, listing a custom scheme under `LSApplicationQueriesSchemes` is only required when\nyou rely on `canOpenURL` for that scheme (for example `instagram://`). It is not required\nfor HTTPS `authorizedAppLinks`, and `mailto`/`tel`/`sms` open without that Info.plist entry.",
+          "complexTypes": [],
+          "type": "boolean | undefined"
+        },
+        {
+          "name": "openBlankTargetInWebView",
+          "tags": [
+            {
+              "text": "8.5.6",
+              "name": "since"
+            },
+            {
+              "text": "false",
+              "name": "default"
+            },
+            {
+              "text": "openBlankTargetInWebView: true",
+              "name": "example"
+            }
+          ],
+          "docs": "When true, HTTP and HTTPS links opened from `target=\"_blank\"` anchors stay in the current webview instead of spawning a popup or opening in the system browser.\nBy default, blank-target HTTP(S) links stay inside the plugin as managed popups that share cookies with the opener; enabling this option keeps everything in the same tab.\nCustom schemes such as `tel:` and `mailto:` and authorized app links still prefer their native handlers unless `preventDeeplink` is enabled.",
+          "complexTypes": [],
+          "type": "boolean | undefined"
+        },
+        {
+          "name": "authorizedAppLinks",
+          "tags": [
+            {
+              "text": "```ts\n[\"https://example.com\", \"https://instagram.com\", \"https://apps.apple.com\"]\n```",
+              "name": "example"
+            },
+            {
+              "text": "7.12.0",
+              "name": "since"
+            },
+            {
+              "text": "[]",
+              "name": "default"
+            }
+          ],
+          "docs": "List of base URLs whose hosts are treated as authorized App Links (Android) and Universal Links (iOS).\n\n- On both platforms, only HTTP(S) links whose host matches any entry in this list\n  will attempt to leave the in-app browser for the native / system handler.\n- iOS tries a Universal Link first (`universalLinksOnly`), then falls back to a normal\n  system open (App Store, Safari, etc.). Only if both fail does the URL stay in-webview.\n- Android uses an `ACTION_VIEW` intent for matching hosts.\n- Matching is host-based (case-insensitive), ignoring the \"www.\" prefix.\n- HTTPS hosts do not need `LSApplicationQueriesSchemes`; that Info.plist key is for\n  custom schemes like `instagram://`, not `https://instagram.com`.\n- When `preventDeeplink` is enabled, all external handling is blocked regardless of this list.",
+          "complexTypes": [],
+          "type": "string[] | undefined"
+        },
+        {
+          "name": "enabledSafeBottomMargin",
+          "tags": [
+            {
+              "text": "7.13.0",
+              "name": "since"
+            },
+            {
+              "text": "false",
+              "name": "default"
+            },
+            {
+              "text": "enabledSafeBottomMargin: true",
+              "name": "example"
+            }
+          ],
+          "docs": "If true, the webView will not take the full height and will have a 20px margin at the bottom.\nThis creates a safe margin area outside the browser view.",
+          "complexTypes": [],
+          "type": "boolean | undefined"
+        },
+        {
+          "name": "enabledSafeTopMargin",
+          "tags": [
+            {
+              "text": "8.2.0",
+              "name": "since"
+            },
+            {
+              "text": "true",
+              "name": "default"
+            },
+            {
+              "text": "enabledSafeTopMargin: false  // Full screen, extends behind status bar",
+              "name": "example"
+            }
+          ],
+          "docs": "If false, the webView will extend behind the status bar for true full-screen immersive content.\nWhen true (default), respects the safe area at the top of the screen.\nWorks independently of toolbarType - use for full-screen video players, games, or immersive web apps.",
+          "complexTypes": [],
+          "type": "boolean | undefined"
+        },
+        {
+          "name": "useTopInset",
+          "tags": [
+            {
+              "text": "false",
+              "name": "default"
+            },
+            {
+              "text": "useTopInset: true",
+              "name": "example"
+            }
+          ],
+          "docs": "When true, applies the system status bar inset as the WebView top margin on Android.\nKeeps the legacy 0px margin by default for apps that handle padding themselves.",
+          "complexTypes": [],
+          "type": "boolean | undefined"
+        },
+        {
+          "name": "enableGooglePaySupport",
+          "tags": [
+            {
+              "text": "7.13.0",
+              "name": "since"
+            },
+            {
+              "text": "false",
+              "name": "default"
+            },
+            {
+              "text": "enableGooglePaySupport: true\nTest URL: https://developers.google.com/pay/api/web/guides/tutorial",
+              "name": "example"
+            }
+          ],
+          "docs": "enableGooglePaySupport: if true, enables support for Google Pay popups and Payment Request API.\nThis fixes OR_BIBED_15 errors by allowing popup windows and configuring Cross-Origin-Opener-Policy.\nOnly enable this if you need Google Pay functionality as it allows popup windows.\n\nWhen enabled:\n- Allows popup windows for Google Pay authentication\n- Sets proper CORS headers for Payment Request API\n- Enables multiple window support in WebView\n- Configures secure context for payment processing",
+          "complexTypes": [],
+          "type": "boolean | undefined"
+        },
+        {
+          "name": "hiddenPopupWindow",
+          "tags": [
+            {
+              "text": "false",
+              "name": "default"
+            },
+            {
+              "text": "8.6.0",
+              "name": "since"
+            },
+            {
+              "text": "hiddenPopupWindow: true",
+              "name": "example"
+            }
+          ],
+          "docs": "Opens popup windows created by the page in hidden mode.\nHidden popup windows can still be controlled with `executeScript`, `postMessage`, `show`, and `close`.\nListen to `popupWindowOpened` to capture the popup id, then call `show({ id })` only if you want to reveal it.",
+          "complexTypes": [],
+          "type": "boolean | undefined"
+        },
+        {
+          "name": "blockedHosts",
+          "tags": [
+            {
+              "text": "7.17.0",
+              "name": "since"
+            },
+            {
+              "text": "[]",
+              "name": "default"
+            },
+            {
+              "text": "blockedHosts: [\"*.tracking.com\", \"ads.example.com\"]",
+              "name": "example"
+            }
+          ],
+          "docs": "blockedHosts: List of host patterns that should be blocked from loading in the InAppBrowser's internal navigations.\nAny request inside WebView to a URL with a host matching any of these patterns will be blocked.\nSupports wildcard patterns like:\n- \"*.example.com\" to block all subdomains\n- \"www.example.*\" to block wildcard domain extensions",
+          "complexTypes": [],
+          "type": "string[] | undefined"
+        },
+        {
+          "name": "width",
+          "tags": [
+            {
+              "text": "undefined (fullscreen)",
+              "name": "default"
+            },
+            {
+              "text": "width: 400",
+              "name": "example"
+            }
+          ],
+          "docs": "Width of the webview in screen/window points.\nIf not set, webview will be fullscreen width.",
+          "complexTypes": [],
+          "type": "number | undefined"
+        },
+        {
+          "name": "height",
+          "tags": [
+            {
+              "text": "undefined (fullscreen)",
+              "name": "default"
+            },
+            {
+              "text": "height: 600",
+              "name": "example"
+            }
+          ],
+          "docs": "Height of the webview in screen/window points.\nRequired for custom-sized (non-fullscreen) webviews.",
+          "complexTypes": [],
+          "type": "number | undefined"
+        },
+        {
+          "name": "x",
+          "tags": [
+            {
+              "text": "0",
+              "name": "default"
+            },
+            {
+              "text": "x: 50",
+              "name": "example"
+            }
+          ],
+          "docs": "X position of the webview in screen/window points from the left edge.\nOnly effective when custom height is set.",
+          "complexTypes": [],
+          "type": "number | undefined"
+        },
+        {
+          "name": "y",
+          "tags": [
+            {
+              "text": "0",
+              "name": "default"
+            },
+            {
+              "text": "y: 100",
+              "name": "example"
+            }
+          ],
+          "docs": "Y position of the webview in screen/window points from the top edge.\nOnly effective when custom height is set.",
+          "complexTypes": [],
+          "type": "number | undefined"
+        },
+        {
+          "name": "toBack",
+          "tags": [
+            {
+              "text": "false",
+              "name": "default"
+            }
+          ],
+          "docs": "Places the native browser behind the Capacitor host WebView.\nMake the app background transparent to reveal it, or rely on `transparentBackground` to clear the host WebView.",
+          "complexTypes": [],
+          "type": "boolean | undefined"
+        },
+        {
+          "name": "transparentBackground",
+          "tags": [
+            {
+              "text": "true",
+              "name": "default"
+            }
+          ],
+          "docs": "When `toBack` is true, makes the Capacitor host WebView transparent so the native browser can be seen behind Ionic content.\nIgnored when the browser is in front.",
+          "complexTypes": [],
+          "type": "boolean | undefined"
+        },
+        {
+          "name": "disableOverscroll",
+          "tags": [
+            {
+              "text": "8.0.2",
+              "name": "since"
+            },
+            {
+              "text": "false",
+              "name": "default"
+            },
+            {
+              "text": "disableOverscroll: true",
+              "name": "example"
+            }
+          ],
+          "docs": "Disables the bounce (overscroll) effect on iOS WebView.\nWhen enabled, prevents the rubber band scrolling effect when users scroll beyond content boundaries.\nThis is useful for:\n- Creating a more native, app-like experience\n- Preventing accidental overscroll states\n- Avoiding issues when keyboard opens/closes\n\nNote: This option only affects iOS. Android does not have this bounce effect by default.",
+          "complexTypes": [],
+          "type": "boolean | undefined"
+        },
+        {
+          "name": "hidden",
+          "tags": [
+            {
+              "text": "8.0.7",
+              "name": "since"
+            },
+            {
+              "text": "false",
+              "name": "default"
+            },
+            {
+              "text": "hidden: true",
+              "name": "example"
+            }
+          ],
+          "docs": "Opens the webview in hidden mode (not visible to user but fully functional).\nWhen hidden, the webview loads and executes JavaScript but is not displayed.\nAll control methods (executeScript, postMessage, setUrl, etc.) work while hidden.\nUse close() to clean up the hidden webview when done.",
+          "complexTypes": [],
+          "type": "boolean | undefined"
+        },
+        {
+          "name": "invisibilityMode",
+          "tags": [
+            {
+              "text": "InvisibilityMode.AWARE",
+              "name": "default"
+            },
+            {
+              "text": "invisibilityMode: InvisibilityMode.FAKE_VISIBLE",
+              "name": "example"
+            }
+          ],
+          "docs": "Controls how a hidden webview reports its visibility and size.\n- AWARE: webview is aware it's hidden (dimensions may be zero).\n- FAKE_VISIBLE: webview is hidden but reports fullscreen dimensions (uses alpha=0 to remain invisible).",
+          "complexTypes": [
+            "InvisibilityMode"
+          ],
+          "type": "InvisibilityMode"
+        }
+      ]
+    },
+    {
+      "name": "Headers",
+      "slug": "headers",
+      "docs": "",
+      "tags": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "Credentials",
+      "slug": "credentials",
+      "docs": "",
+      "tags": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "username",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [],
+          "type": "string"
+        },
+        {
+          "name": "password",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [],
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "name": "DisclaimerOptions",
+      "slug": "disclaimeroptions",
+      "docs": "",
+      "tags": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "title",
+          "tags": [
+            {
+              "text": "\"Title\"",
+              "name": "default"
+            }
+          ],
+          "docs": "Title of the disclaimer dialog",
+          "complexTypes": [],
+          "type": "string"
+        },
+        {
+          "name": "message",
+          "tags": [
+            {
+              "text": "\"Message\"",
+              "name": "default"
+            }
+          ],
+          "docs": "Message shown in the disclaimer dialog",
+          "complexTypes": [],
+          "type": "string"
+        },
+        {
+          "name": "confirmBtn",
+          "tags": [
+            {
+              "text": "\"Confirm\"",
+              "name": "default"
+            }
+          ],
+          "docs": "Text for the confirm button",
+          "complexTypes": [],
+          "type": "string"
+        },
+        {
+          "name": "cancelBtn",
+          "tags": [
+            {
+              "text": "\"Cancel\"",
+              "name": "default"
+            }
+          ],
+          "docs": "Text for the cancel button",
+          "complexTypes": [],
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "name": "ToolbarTitleIconOptions",
+      "slug": "toolbartitleiconoptions",
+      "docs": "",
+      "tags": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "ios",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [],
+          "type": "{ iconType: 'sf-symbol' | 'asset'; icon: string; } | undefined"
+        },
+        {
+          "name": "android",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [],
+          "type": "{ iconType: 'asset' | 'vector'; icon: string; width?: number | undefined; height?: number | undefined; } | undefined"
+        }
+      ]
+    },
+    {
+      "name": "NativeProxyRule",
+      "slug": "nativeproxyrule",
+      "docs": "Native-first proxy rule used on Android and iOS.\n\nAny regex property that is omitted is treated as a wildcard.",
+      "tags": [
+        {
+          "text": "8.6.0",
+          "name": "since"
+        }
+      ],
+      "methods": [],
+      "properties": [
+        {
+          "name": "id",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [],
+          "type": "string | undefined"
+        },
+        {
+          "name": "urlRegex",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [],
+          "type": "string | undefined"
+        },
+        {
+          "name": "methodRegex",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [],
+          "type": "string | undefined"
+        },
+        {
+          "name": "headerRegex",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [],
+          "type": "string | undefined"
+        },
+        {
+          "name": "bodyRegex",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [],
+          "type": "string | undefined"
+        },
+        {
+          "name": "statusRegex",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [],
+          "type": "string | undefined"
+        },
+        {
+          "name": "responseHeaderRegex",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [],
+          "type": "string | undefined"
+        },
+        {
+          "name": "responseBodyRegex",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [],
+          "type": "string | undefined"
+        },
+        {
+          "name": "mainFrameOnly",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [],
+          "type": "boolean | undefined"
+        },
+        {
+          "name": "action",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [],
+          "type": "'continue' | 'cancel' | 'delegateToJs'"
+        }
+      ]
+    },
+    {
+      "name": "ScreenshotResult",
+      "slug": "screenshotresult",
+      "docs": "",
+      "tags": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "format",
+          "tags": [],
+          "docs": "Image format used for the screenshot.",
+          "complexTypes": [],
+          "type": "'png'"
+        },
+        {
+          "name": "mimeType",
+          "tags": [],
+          "docs": "MIME type of the generated screenshot.",
+          "complexTypes": [],
+          "type": "'image/png'"
+        },
+        {
+          "name": "base64",
+          "tags": [],
+          "docs": "Base64-encoded screenshot payload without the data URL prefix.",
+          "complexTypes": [],
+          "type": "string"
+        },
+        {
+          "name": "dataUrl",
+          "tags": [],
+          "docs": "Data URL for direct use in HTML img tags or uploads.",
+          "complexTypes": [],
+          "type": "string"
+        },
+        {
+          "name": "width",
+          "tags": [],
+          "docs": "Screenshot width in pixels.",
+          "complexTypes": [],
+          "type": "number"
+        },
+        {
+          "name": "height",
+          "tags": [],
+          "docs": "Screenshot height in pixels.",
+          "complexTypes": [],
+          "type": "number"
+        }
+      ]
+    },
+    {
+      "name": "PluginListenerHandle",
+      "slug": "pluginlistenerhandle",
+      "docs": "",
+      "tags": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "remove",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [],
+          "type": "() => Promise<void>"
+        }
+      ]
+    },
+    {
+      "name": "UrlEvent",
+      "slug": "urlevent",
+      "docs": "",
+      "tags": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "id",
+          "tags": [],
+          "docs": "Webview instance id.",
+          "complexTypes": [],
+          "type": "string | undefined"
+        },
+        {
+          "name": "url",
+          "tags": [
+            {
+              "text": "0.0.1",
+              "name": "since"
+            }
+          ],
+          "docs": "Emit when the url changes",
+          "complexTypes": [],
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "name": "ButtonNearDoneEvent",
+      "slug": "buttonneardoneevent",
+      "docs": "",
+      "tags": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "id",
+          "tags": [
+            {
+              "text": "8.6.36",
+              "name": "since"
+            }
+          ],
+          "docs": "Webview instance id.",
+          "complexTypes": [],
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "name": "HideEvent",
+      "slug": "hideevent",
+      "docs": "",
+      "tags": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "id",
+          "tags": [],
+          "docs": "Webview instance id.",
+          "complexTypes": [],
+          "type": "string | undefined"
+        },
+        {
+          "name": "url",
+          "tags": [],
+          "docs": "URL active when the webview was hidden.",
+          "complexTypes": [],
+          "type": "string"
+        },
+        {
+          "name": "screenshot",
+          "tags": [],
+          "docs": "Screenshot captured immediately before the toolbar close button hides the webview.\nPresent only when `screenshotOnHide` is enabled and capture succeeds.",
+          "complexTypes": [
+            "ScreenshotResult"
+          ],
+          "type": "ScreenshotResult"
+        }
+      ]
+    },
+    {
+      "name": "BtnEvent",
+      "slug": "btnevent",
+      "docs": "",
+      "tags": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "id",
+          "tags": [],
+          "docs": "Webview instance id.",
+          "complexTypes": [],
+          "type": "string | undefined"
+        },
+        {
+          "name": "url",
+          "tags": [
+            {
+              "text": "0.0.1",
+              "name": "since"
+            }
+          ],
+          "docs": "Emit when a button is clicked.",
+          "complexTypes": [],
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "name": "CustomSchemeInterceptedEvent",
+      "slug": "customschemeinterceptedevent",
+      "docs": "Event emitted when the managed webview intercepts a non-standard custom scheme\nand hands it to the operating system.\n\nStandard OS-handled schemes such as `tel:`, `mailto:`, and `sms:` are excluded.",
+      "tags": [
+        {
+          "text": "8.6.7",
+          "name": "since"
+        }
+      ],
+      "methods": [],
+      "properties": [
+        {
+          "name": "id",
+          "tags": [],
+          "docs": "Webview instance id.",
+          "complexTypes": [],
+          "type": "string | undefined"
+        },
+        {
+          "name": "url",
+          "tags": [],
+          "docs": "Intercepted URL.",
+          "complexTypes": [],
+          "type": "string"
+        },
+        {
+          "name": "opened",
+          "tags": [],
+          "docs": "Whether the operating system accepted the URL handoff.",
+          "complexTypes": [],
+          "type": "boolean"
+        }
+      ]
+    },
+    {
+      "name": "DownloadCompletedEvent",
+      "slug": "downloadcompletedevent",
+      "docs": "Event emitted after a managed download is saved locally.",
+      "tags": [
+        {
+          "text": "8.6.0",
+          "name": "since"
+        }
+      ],
+      "methods": [],
+      "properties": [
+        {
+          "name": "id",
+          "tags": [],
+          "docs": "Source webview instance id.",
+          "complexTypes": [],
+          "type": "string | undefined"
+        },
+        {
+          "name": "sourceUrl",
+          "tags": [],
+          "docs": "Original URL that triggered the download when available.",
+          "complexTypes": [],
+          "type": "string | undefined"
+        },
+        {
+          "name": "fileName",
+          "tags": [],
+          "docs": "Saved filename.",
+          "complexTypes": [],
+          "type": "string"
+        },
+        {
+          "name": "mimeType",
+          "tags": [],
+          "docs": "Resolved MIME type when available.",
+          "complexTypes": [],
+          "type": "string | undefined"
+        },
+        {
+          "name": "path",
+          "tags": [],
+          "docs": "Absolute native filesystem path to the saved file.",
+          "complexTypes": [],
+          "type": "string"
+        },
+        {
+          "name": "localUrl",
+          "tags": [],
+          "docs": "`file://` URL pointing at the saved file.",
+          "complexTypes": [],
+          "type": "string"
+        },
+        {
+          "name": "handledBy",
+          "tags": [],
+          "docs": "How native handled the downloaded file after saving it.",
+          "complexTypes": [
+            "DownloadHandledBy"
+          ],
+          "type": "DownloadHandledBy"
+        }
+      ]
+    },
+    {
+      "name": "DownloadFailedEvent",
+      "slug": "downloadfailedevent",
+      "docs": "Event emitted when managed download handling fails.",
+      "tags": [
+        {
+          "text": "8.6.0",
+          "name": "since"
+        }
+      ],
+      "methods": [],
+      "properties": [
+        {
+          "name": "id",
+          "tags": [],
+          "docs": "Source webview instance id.",
+          "complexTypes": [],
+          "type": "string | undefined"
+        },
+        {
+          "name": "sourceUrl",
+          "tags": [],
+          "docs": "Original URL that triggered the download when available.",
+          "complexTypes": [],
+          "type": "string | undefined"
+        },
+        {
+          "name": "fileName",
+          "tags": [],
+          "docs": "Intended filename when known.",
+          "complexTypes": [],
+          "type": "string | undefined"
+        },
+        {
+          "name": "mimeType",
+          "tags": [],
+          "docs": "Resolved MIME type when available.",
+          "complexTypes": [],
+          "type": "string | undefined"
+        },
+        {
+          "name": "error",
+          "tags": [],
+          "docs": "Native error message.",
+          "complexTypes": [],
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "name": "PopupWindowEvent",
+      "slug": "popupwindowevent",
+      "docs": "Event emitted when a web page opens a popup/new window.",
+      "tags": [
+        {
+          "text": "8.6.0",
+          "name": "since"
+        }
+      ],
+      "methods": [],
+      "properties": [
+        {
+          "name": "id",
+          "tags": [],
+          "docs": "Popup webview instance id.",
+          "complexTypes": [],
+          "type": "string"
+        },
+        {
+          "name": "parentId",
+          "tags": [],
+          "docs": "Parent webview instance id.",
+          "complexTypes": [],
+          "type": "string | undefined"
+        },
+        {
+          "name": "url",
+          "tags": [],
+          "docs": "Requested popup URL when available.",
+          "complexTypes": [],
+          "type": "string | undefined"
+        },
+        {
+          "name": "visible",
+          "tags": [],
+          "docs": "Whether the popup was presented immediately.",
+          "complexTypes": [],
+          "type": "boolean"
+        }
+      ]
+    },
+    {
+      "name": "ProxyRequest",
+      "slug": "proxyrequest",
+      "docs": "Represents an intercepted HTTP request from the in-app browser webview.\n\nRequest and response bodies are base64-encoded when present.",
+      "tags": [
+        {
+          "text": "8.6.0",
+          "name": "since"
+        }
+      ],
+      "methods": [],
+      "properties": [
+        {
+          "name": "requestId",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [],
+          "type": "string"
+        },
+        {
+          "name": "phase",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [],
+          "type": "'outbound' | 'inbound'"
+        },
+        {
+          "name": "url",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [],
+          "type": "string"
+        },
+        {
+          "name": "method",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [],
+          "type": "string"
+        },
+        {
+          "name": "headers",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [
+            "Record"
+          ],
+          "type": "Record<string, string>"
+        },
+        {
+          "name": "body",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [],
+          "type": "string | null"
+        },
+        {
+          "name": "status",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [],
+          "type": "number | undefined"
+        },
+        {
+          "name": "responseHeaders",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [
+            "Record"
+          ],
+          "type": "Record<string, string>"
+        },
+        {
+          "name": "responseBody",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [],
+          "type": "string | null | undefined"
+        },
+        {
+          "name": "webviewId",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [],
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "name": "ConsoleMessageEvent",
+      "slug": "consolemessageevent",
+      "docs": "Event emitted when JavaScript running inside the managed webview writes to the console.\n\nEnable this with `captureConsoleLogs: true` when opening the webview.",
+      "tags": [
+        {
+          "text": "8.6.0",
+          "name": "since"
+        }
+      ],
+      "methods": [],
+      "properties": [
+        {
+          "name": "id",
+          "tags": [],
+          "docs": "Source webview instance id.",
+          "complexTypes": [],
+          "type": "string | undefined"
+        },
+        {
+          "name": "level",
+          "tags": [],
+          "docs": "Console method or normalized severity.",
+          "complexTypes": [],
+          "type": "string"
+        },
+        {
+          "name": "message",
+          "tags": [],
+          "docs": "Joined string representation of the console arguments.",
+          "complexTypes": [],
+          "type": "string"
+        },
+        {
+          "name": "source",
+          "tags": [],
+          "docs": "Script URL or page URL when available.",
+          "complexTypes": [],
+          "type": "string | undefined"
+        },
+        {
+          "name": "line",
+          "tags": [],
+          "docs": "1-based line number when available.",
+          "complexTypes": [],
+          "type": "number | undefined"
+        },
+        {
+          "name": "column",
+          "tags": [],
+          "docs": "1-based column number when available.",
+          "complexTypes": [],
+          "type": "number | undefined"
+        },
+        {
+          "name": "kind",
+          "tags": [],
+          "docs": "Optional subtype for runtime-originated errors on supported platforms.",
+          "complexTypes": [],
+          "type": "string | undefined"
+        }
+      ]
+    },
+    {
+      "name": "ProxyDecision",
+      "slug": "proxydecision",
+      "docs": "Decision returned to native when handling a proxied request.",
+      "tags": [
+        {
+          "text": "8.6.0",
+          "name": "since"
+        }
+      ],
+      "methods": [],
+      "properties": [
+        {
+          "name": "request",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [
+            "ProxyRequestOverride"
+          ],
+          "type": "ProxyRequestOverride | null | undefined"
+        },
+        {
+          "name": "response",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [
+            "ProxyResponse"
+          ],
+          "type": "ProxyResponse | null | undefined"
+        },
+        {
+          "name": "cancel",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [],
+          "type": "boolean | undefined"
+        }
+      ]
+    },
+    {
+      "name": "ProxyRequestOverride",
+      "slug": "proxyrequestoverride",
+      "docs": "Request override returned to native for an outbound proxied request.\n\nThe body must be base64-encoded when present.",
+      "tags": [
+        {
+          "text": "8.6.0",
+          "name": "since"
+        }
+      ],
+      "methods": [],
+      "properties": [
+        {
+          "name": "url",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [],
+          "type": "string"
+        },
+        {
+          "name": "method",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [],
+          "type": "string | undefined"
+        },
+        {
+          "name": "headers",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [
+            "Record"
+          ],
+          "type": "Record<string, string>"
+        },
+        {
+          "name": "body",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [],
+          "type": "string | null | undefined"
+        }
+      ]
+    },
+    {
+      "name": "ProxyResponse",
+      "slug": "proxyresponse",
+      "docs": "Response payload returned to native for a proxied request.\n\nThe body must be base64-encoded.",
+      "tags": [
+        {
+          "text": "8.6.0",
+          "name": "since"
+        }
+      ],
+      "methods": [],
+      "properties": [
+        {
+          "name": "body",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [],
+          "type": "string"
+        },
+        {
+          "name": "status",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [],
+          "type": "number"
+        },
+        {
+          "name": "headers",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [
+            "Record"
+          ],
+          "type": "Record<string, string>"
+        }
+      ]
+    },
+    {
+      "name": "DimensionOptions",
+      "slug": "dimensionoptions",
+      "docs": "",
+      "tags": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "width",
+          "tags": [],
+          "docs": "Width of the webview in pixels",
+          "complexTypes": [],
+          "type": "number | undefined"
+        },
+        {
+          "name": "height",
+          "tags": [],
+          "docs": "Height of the webview in pixels",
+          "complexTypes": [],
+          "type": "number | undefined"
+        },
+        {
+          "name": "x",
+          "tags": [],
+          "docs": "X position from the left edge in pixels",
+          "complexTypes": [],
+          "type": "number | undefined"
+        },
+        {
+          "name": "y",
+          "tags": [],
+          "docs": "Y position from the top edge in pixels",
+          "complexTypes": [],
+          "type": "number | undefined"
+        }
+      ]
+    },
+    {
+      "name": "OpenSecureWindowResponse",
+      "slug": "opensecurewindowresponse",
+      "docs": "",
+      "tags": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "redirectedUri",
+          "tags": [],
+          "docs": "The result of the openSecureWindow call",
+          "complexTypes": [],
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "name": "OpenSecureWindowOptions",
+      "slug": "opensecurewindowoptions",
+      "docs": "",
+      "tags": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "authEndpoint",
+          "tags": [],
+          "docs": "The endpoint to open",
+          "complexTypes": [],
+          "type": "string"
+        },
+        {
+          "name": "redirectUri",
+          "tags": [],
+          "docs": "The redirect URI to use for the openSecureWindow call.\nThis will be checked to make sure it matches the redirect URI after the window finishes the redirection.",
+          "complexTypes": [],
+          "type": "string"
+        },
+        {
+          "name": "broadcastChannelName",
+          "tags": [],
+          "docs": "The name of the broadcast channel to listen to, relevant only for web",
+          "complexTypes": [],
+          "type": "string | undefined"
+        },
+        {
+          "name": "prefersEphemeralWebBrowserSession",
+          "tags": [
+            {
+              "text": "false",
+              "name": "default"
+            },
+            {
+              "text": "6.6.0",
+              "name": "since"
+            }
+          ],
+          "docs": "If true, the browser session will be ephemeral (no cookies or browsing data are shared with the system browser).\nOn iOS, this sets `prefersEphemeralWebBrowserSession = true` on `ASWebAuthenticationSession`.\nOn Android, this enables Custom Tabs ephemeral browsing via `setEphemeralBrowsingEnabled(true)`.",
+          "complexTypes": [],
+          "type": "boolean | undefined"
+        }
+      ]
+    }
+  ],
+  "enums": [
+    {
+      "name": "ToolBarType",
+      "slug": "toolbartype",
+      "members": [
+        {
+          "name": "ACTIVITY",
+          "value": "'activity'",
+          "tags": [
+            {
+              "text": "0.1.0",
+              "name": "since"
+            }
+          ],
+          "docs": "Shows a simple toolbar with just a close button and share button"
+        },
+        {
+          "name": "COMPACT",
+          "value": "'compact'",
+          "tags": [
+            {
+              "text": "7.6.8",
+              "name": "since"
+            }
+          ],
+          "docs": "Shows a simple toolbar with just a close button"
+        },
+        {
+          "name": "NAVIGATION",
+          "value": "'navigation'",
+          "tags": [
+            {
+              "text": "0.1.0",
+              "name": "since"
+            }
+          ],
+          "docs": "Shows a full navigation toolbar with back/forward buttons"
+        },
+        {
+          "name": "BLANK",
+          "value": "'blank'",
+          "tags": [
+            {
+              "text": "0.1.0",
+              "name": "since"
+            }
+          ],
+          "docs": "Shows no toolbar"
+        }
+      ]
+    },
+    {
+      "name": "BackgroundColor",
+      "slug": "backgroundcolor",
+      "members": [
+        {
+          "name": "WHITE",
+          "value": "'white'",
+          "tags": [],
+          "docs": ""
+        },
+        {
+          "name": "BLACK",
+          "value": "'black'",
+          "tags": [],
+          "docs": ""
+        }
+      ]
+    },
+    {
+      "name": "CloseAction",
+      "slug": "closeaction",
+      "members": [
+        {
+          "name": "CLOSE",
+          "value": "'close'",
+          "tags": [],
+          "docs": "The toolbar close button closes and destroys the webview."
+        },
+        {
+          "name": "HIDE",
+          "value": "'hide'",
+          "tags": [],
+          "docs": "The toolbar close button hides the webview so it can be shown again."
+        }
+      ]
+    },
+    {
+      "name": "InvisibilityMode",
+      "slug": "invisibilitymode",
+      "members": [
+        {
+          "name": "AWARE",
+          "value": "'AWARE'",
+          "tags": [],
+          "docs": "WebView is aware it is hidden (dimensions may be zero)."
+        },
+        {
+          "name": "FAKE_VISIBLE",
+          "value": "'FAKE_VISIBLE'",
+          "tags": [],
+          "docs": "WebView is hidden but reports fullscreen dimensions (uses alpha=0 to remain invisible)."
+        }
+      ]
+    }
+  ],
+  "typeAliases": [
+    {
+      "name": "ClearCookieOptions",
+      "slug": "clearcookieoptions",
+      "docs": "",
+      "types": [
+        {
+          "text": "Omit<HttpCookie, 'key' | 'value'>",
+          "complexTypes": [
+            "Omit",
+            "HttpCookie"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Omit",
+      "slug": "omit",
+      "docs": "Construct a type with the properties of T except for those in type K.",
+      "types": [
+        {
+          "text": "Pick<T, Exclude<keyof T, K>>",
+          "complexTypes": [
+            "Pick",
+            "T",
+            "Exclude",
+            "K"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Pick",
+      "slug": "pick",
+      "docs": "From T, pick a set of properties whose keys are in the union K",
+      "types": [
+        {
+          "text": "{\r\n    [P in K]: T[P];\r\n}",
+          "complexTypes": [
+            "K",
+            "T",
+            "P"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Exclude",
+      "slug": "exclude",
+      "docs": "Exclude from T those types that are assignable to U",
+      "types": [
+        {
+          "text": "T extends U ? never : T",
+          "complexTypes": [
+            "T",
+            "U"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Record",
+      "slug": "record",
+      "docs": "Construct a type with a set of properties K of type T",
+      "types": [
+        {
+          "text": "{\r\n    [P in K]: T;\r\n}",
+          "complexTypes": [
+            "K",
+            "T"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "GetCookieOptions",
+      "slug": "getcookieoptions",
+      "docs": "",
+      "types": [
+        {
+          "text": "Omit<HttpCookie, 'key' | 'value'>",
+          "complexTypes": [
+            "Omit",
+            "HttpCookie"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "DispatchInputEventOptions",
+      "slug": "dispatchinputeventoptions",
+      "docs": "",
+      "types": [
+        {
+          "text": "DispatchPointerInputEventOptions",
+          "complexTypes": [
+            "DispatchPointerInputEventOptions"
+          ]
+        },
+        {
+          "text": "DispatchScrollInputEventOptions",
+          "complexTypes": [
+            "DispatchScrollInputEventOptions"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "WebViewPointerInputEventType",
+      "slug": "webviewpointerinputeventtype",
+      "docs": "",
+      "types": [
+        {
+          "text": "'click'",
+          "complexTypes": []
+        },
+        {
+          "text": "'touchstart'",
+          "complexTypes": []
+        },
+        {
+          "text": "'touchmove'",
+          "complexTypes": []
+        },
+        {
+          "text": "'touchend'",
+          "complexTypes": []
+        },
+        {
+          "text": "'touchcancel'",
+          "complexTypes": []
+        }
+      ]
+    },
+    {
+      "name": "UrlChangeListener",
+      "slug": "urlchangelistener",
+      "docs": "",
+      "types": [
+        {
+          "text": "(state: UrlEvent): void",
+          "complexTypes": [
+            "UrlEvent"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ButtonNearListener",
+      "slug": "buttonnearlistener",
+      "docs": "",
+      "types": [
+        {
+          "text": "(state: ButtonNearDoneEvent): void",
+          "complexTypes": [
+            "ButtonNearDoneEvent"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "HideListener",
+      "slug": "hidelistener",
+      "docs": "",
+      "types": [
+        {
+          "text": "(state: HideEvent): void",
+          "complexTypes": [
+            "HideEvent"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ConfirmBtnListener",
+      "slug": "confirmbtnlistener",
+      "docs": "",
+      "types": [
+        {
+          "text": "(state: BtnEvent): void",
+          "complexTypes": [
+            "BtnEvent"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "CustomSchemeInterceptedListener",
+      "slug": "customschemeinterceptedlistener",
+      "docs": "",
+      "types": [
+        {
+          "text": "(state: CustomSchemeInterceptedEvent): void",
+          "complexTypes": [
+            "CustomSchemeInterceptedEvent"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "DownloadHandledBy",
+      "slug": "downloadhandledby",
+      "docs": "Native handling mode used after a managed download finishes.",
+      "types": [
+        {
+          "text": "'inAppBrowser'",
+          "complexTypes": []
+        },
+        {
+          "text": "'systemPreview'",
+          "complexTypes": []
+        },
+        {
+          "text": "'external'",
+          "complexTypes": []
+        }
+      ]
+    }
+  ],
+  "pluginConfigs": []
+}
