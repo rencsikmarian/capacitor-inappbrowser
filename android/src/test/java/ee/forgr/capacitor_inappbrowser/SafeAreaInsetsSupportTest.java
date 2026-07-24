@@ -1,6 +1,8 @@
 package ee.forgr.capacitor_inappbrowser;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
@@ -144,5 +146,26 @@ public class SafeAreaInsetsSupportTest {
     public void containerTopPaddingRequiresBothSafeTopAndExplicitTopInset() {
         assertEquals(0, SafeAreaInsetsSupport.resolveContainerTopPadding(false, true, 87, false));
         assertEquals(0, SafeAreaInsetsSupport.resolveContainerTopPadding(true, false, 87, false));
+    }
+
+    @Test
+    public void bottomInsetIsForcedOnEdgeToEdgeEvenWithoutOptIn() {
+        // Android 15 forces edge-to-edge, so the nav-bar inset applies regardless of the opt-in.
+        assertTrue(SafeAreaInsetsSupport.shouldInsetBottomForContainer(false, true));
+        assertTrue(SafeAreaInsetsSupport.shouldInsetBottomForContainer(true, true));
+    }
+
+    @Test
+    public void bottomInsetHonoursOptInWhenNotEdgeToEdge() {
+        // Pre-Android 15 keeps the original opt-in behaviour untouched.
+        assertTrue(SafeAreaInsetsSupport.shouldInsetBottomForContainer(true, false));
+        assertFalse(SafeAreaInsetsSupport.shouldInsetBottomForContainer(false, false));
+    }
+
+    @Test
+    public void containerBottomPaddingAppliesNavigationBarWhenForcedByEdgeToEdge() {
+        // Opt-in off, but edge-to-edge forces applyBottomInset=true → 126 nav + 87 appbar = 213.
+        boolean applyBottomInset = SafeAreaInsetsSupport.shouldInsetBottomForContainer(false, true);
+        assertEquals(213, SafeAreaInsetsSupport.resolveContainerBottomPadding(applyBottomInset, 126, 0, true, 87));
     }
 }

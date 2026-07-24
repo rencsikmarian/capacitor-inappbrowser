@@ -3244,8 +3244,13 @@ public class WebViewDialog extends Dialog implements ProxyResponseRouting.ProxyR
             toolbarView.getVisibility() == View.VISIBLE &&
             toolbarView.getParent() instanceof com.google.android.material.appbar.AppBarLayout;
 
+        boolean applyBottomInset = SafeAreaInsetsSupport.shouldInsetBottomForContainer(
+            _options.getEnabledSafeMargin(),
+            isAndroid15Plus
+        );
+
         int statusBarTop = bars.top > 0 ? bars.top : getSystemStatusBarHeight();
-        int fallbackBottomInset = _options.getEnabledSafeMargin() ? getSystemNavigationBarHeight() : 0;
+        int fallbackBottomInset = applyBottomInset ? getSystemNavigationBarHeight() : 0;
         int safeBottomInset = SafeAreaInsetsSupport.resolveSafeBottomInsetWithFallback(
             bars.bottom,
             navigationBars.bottom,
@@ -3256,7 +3261,7 @@ public class WebViewDialog extends Dialog implements ProxyResponseRouting.ProxyR
             navigationBars.left,
             navigationBars.right,
             fallbackBottomInset,
-            _options.getEnabledSafeMargin()
+            applyBottomInset
         );
 
         int padTop = SafeAreaInsetsSupport.resolveContainerTopPadding(
@@ -3267,7 +3272,7 @@ public class WebViewDialog extends Dialog implements ProxyResponseRouting.ProxyR
         );
         int imeBottom = SafeAreaInsetsSupport.resolveImeBottomInset(keyboardVisible, ime.bottom, isAndroid15Plus);
         int padBottom = SafeAreaInsetsSupport.resolveContainerBottomPadding(
-            _options.getEnabledSafeMargin(),
+            applyBottomInset,
             safeBottomInset,
             imeBottom,
             appBarHandlesTopInset,
